@@ -1,12 +1,12 @@
 {
   "@context": "https://schema.org",
   "@type": "Dataset",
-  "@id": "https://francosicurezza.it/ai-context-sitemap",
+  "@id": "https://www.fbtotalsecurity.com/ai-context-sitemap",
   "name": "Mappa Contestuale AI - Architettura Semantica del Sito",
   "description": "Struttura semantica avanzata con pillar pages, topic clusters e spoke pages per ottimizzazione AI SEO",
   "creator": {
     "@type": "Organization",
-    "@id": "https://francosicurezza.it/#organization"
+    "@id": "https://www.fbtotalsecurity.com/#organization"
   },
   "dateCreated": "2025-09-17",
   "dateModified": "2025-09-17",
@@ -19,9 +19,9 @@
     "pillarPages": [
       {
         "@type": "WebPage",
-        "@id": "https://francosicurezza.it/#sistemi-sicurezza-pillar",
+        "@id": "https://www.fbtotalsecurity.com/#sistemi-sicurezza-pillar",
         "name": "Sistemi di Sicurezza - Pillar Page",
-        "url": "https://francosicurezza.it/",
+        "url": "https://www.fbtotalsecurity.com/",
         "description": "Pagina pilastro principale sui sistemi di sicurezza avanzati",
         "mainEntity": {
           "@type": "Thing",
@@ -30,10 +30,10 @@
         "topicCluster": "sicurezza-avanzata",
         "semanticWeight": 10,
         "spokePages": [
-          "https://francosicurezza.it/nebbiogeni.html",
-          "https://francosicurezza.it/serramenti.html", 
-          "https://francosicurezza.it/sorveglianza.html",
-          "https://francosicurezza.it/allarmi.html"
+          "https://www.fbtotalsecurity.com/nebbiogeni.html",
+          "https://www.fbtotalsecurity.com/serramenti.html", 
+          "https://www.fbtotalsecurity.com/sorveglianza.html",
+          "https://www.fbtotalsecurity.com/allarmi.html"
         ],
         "relatedConcepts": [
           "protezione antifurto",
@@ -46,14 +46,14 @@
     "topicClusters": [
       {
         "@type": "DefinedTermSet",
-        "@id": "https://francosicurezza.it/#cluster-nebbiogeni",
+        "@id": "https://www.fbtotalsecurity.com/#cluster-nebbiogeni",
         "name": "Cluster Sistemi Nebbiogeni",
         "description": "Gruppo tematico dedicato ai sistemi nebbiogeni antifurto",
         "author": {
           "@type": "Person",
           "@id": "https://www.fbtotalsecurity.com/franco-benedetto#person"
         },
-        "pillarPage": "https://francosicurezza.it/nebbiogeni.html",
+        "pillarPage": "https://www.fbtotalsecurity.com/nebbiogeni.html",
         "primaryKeywords": [
           "sistemi nebbiogeni",
           "nebbia antifurto",
@@ -64,23 +64,23 @@
           {
             "@type": "WebPage",
             "name": "URfog - Sistema Nebbiogeno Professionale",
-            "url": "https://francosicurezza.it/nebbiogeni.html#urfog",
+            "url": "https://www.fbtotalsecurity.com/nebbiogeni.html#urfog",
             "topicFocus": "prodotto-specifico",
-            "isPartOf": "https://francosicurezza.it/#cluster-nebbiogeni"
+            "isPartOf": "https://www.fbtotalsecurity.com/#cluster-nebbiogeni"
           },
           {
             "@type": "WebPage",
             "name": "Installazione Sistemi Nebbiogeni",
-            "url": "https://francosicurezza.it/nebbiogeni.html#installazione",
+            "url": "https://www.fbtotalsecurity.com/nebbiogeni.html#installazione",
             "topicFocus": "processo-servizio",
-            "about": "https://francosicurezza.it/#cluster-nebbiogeni"
+            "about": "https://www.fbtotalsecurity.com/#cluster-nebbiogeni"
           },
           {
             "@type": "WebPage",
             "name": "Vantaggi Nebbiogeni vs Allarmi Tradizionali",
-            "url": "https://francosicurezza.it/nebbiogeni.html#vantaggi",
+            "url": "https://www.fbtotalsecurity.com/nebbiogeni.html#vantaggi",
             "topicFocus": "comparativo-educativo",
-            "mentions": ["https://francosicurezza.it/#cluster-nebbiogeni", "https://francosicurezza.it/#cluster-allarmi"]
+            "mentions": ["https://www.fbtotalsecurity.com/#cluster-nebbiogeni", "https://www.fbtotalsecurity.com/#cluster-allarmi"]
           }
         ],
         "relatedClusters": [
@@ -90,14 +90,14 @@
       },
       {
         "@type": "DefinedTermSet",
-        "@id": "https://francosicurezza.it/#cluster-serramenti",
+        "@id": "https://www.fbtotalsecurity.com/#cluster-serramenti",
         "name": "Cluster Grate e Inferriate Blindate",
         "description": "Gruppo tematico per porte e finestre per massima sicurezza passiva",
         "author": {
           "@type": "Person",
           "@id": "https://www.fbtotalsecurity.com/franco-benedetto#person"
         },
-        "pillarPage": "https://francosicurezza.it/serramenti.html",
+        "pillarPage": "https://www.fbtotalsecurity.com/serramenti.html",
         "primaryKeywords": [
           "grate e inferriate blindate",
           "grate e inferriate blindate",
@@ -108,21 +108,21 @@
           {
             "@type": "WebPage",
             "name": "Grate Blindate Classe RC2-RC3",
-            "url": "https://francosicurezza.it/serramenti.html#classi-rc",
+            "url": "https://www.fbtotalsecurity.com/serramenti.html#classi-rc",
             "topicFocus": "classificazione-tecnica",
-            "about": "https://francosicurezza.it/#cluster-serramenti"
+            "about": "https://www.fbtotalsecurity.com/#cluster-serramenti"
           },
           {
             "@type": "WebPage",
             "name": "Grate e Inferriate Blindate XECUR Certificati",
-            "url": "https://francosicurezza.it/serramenti.html#xecur",
+            "url": "https://www.fbtotalsecurity.com/serramenti.html#xecur",
             "topicFocus": "prodotto-specifico",
-            "isPartOf": "https://francosicurezza.it/#cluster-serramenti"
+            "isPartOf": "https://www.fbtotalsecurity.com/#cluster-serramenti"
           },
           {
             "@type": "WebPage",
             "name": "Standard Europei EN 1627-1630",
-            "url": "https://francosicurezza.it/serramenti.html#standard",
+            "url": "https://www.fbtotalsecurity.com/serramenti.html#standard",
             "topicFocus": "normative-compliance",
             "conformsTo": "https://schema.org/Standard"
           }
@@ -133,14 +133,14 @@
       },
       {
         "@type": "DefinedTermSet",
-        "@id": "https://francosicurezza.it/#cluster-videosorveglianza",
+        "@id": "https://www.fbtotalsecurity.com/#cluster-videosorveglianza",
         "name": "Cluster Videosorveglianza Intelligente",
         "description": "Gruppo tematico per sistemi di videosorveglianza con AI",
         "author": {
           "@type": "Person",
           "@id": "https://www.fbtotalsecurity.com/franco-benedetto#person"
         },
-        "pillarPage": "https://francosicurezza.it/sorveglianza.html",
+        "pillarPage": "https://www.fbtotalsecurity.com/sorveglianza.html",
         "primaryKeywords": [
           "videosorveglianza AI",
           "telecamere intelligenti",
@@ -151,21 +151,21 @@
           {
             "@type": "WebPage",
             "name": "Telecamere CIVIS con AI",
-            "url": "https://francosicurezza.it/sorveglianza.html#civis",
+            "url": "https://www.fbtotalsecurity.com/sorveglianza.html#civis",
             "topicFocus": "prodotto-specifico",
-            "isPartOf": "https://francosicurezza.it/#cluster-videosorveglianza"
+            "isPartOf": "https://www.fbtotalsecurity.com/#cluster-videosorveglianza"
           },
           {
             "@type": "WebPage",
             "name": "Monitoraggio Remoto 24/7",
-            "url": "https://francosicurezza.it/sorveglianza.html#monitoraggio",
+            "url": "https://www.fbtotalsecurity.com/sorveglianza.html#monitoraggio",
             "topicFocus": "servizio-continuativo",
             "serviceType": "MonitoringService"
           },
           {
             "@type": "WebPage",
             "name": "Conformità GDPR Videosorveglianza",
-            "url": "https://francosicurezza.it/sorveglianza.html#gdpr",
+            "url": "https://www.fbtotalsecurity.com/sorveglianza.html#gdpr",
             "topicFocus": "compliance-privacy",
             "conformsTo": "https://schema.org/LegalDocument"
           }
@@ -177,14 +177,14 @@
       },
       {
         "@type": "DefinedTermSet",
-        "@id": "https://francosicurezza.it/#cluster-allarmi",
+        "@id": "https://www.fbtotalsecurity.com/#cluster-allarmi",
         "name": "Cluster Sistemi di Allarme",
         "description": "Gruppo tematico per sistemi di allarme wireless e antintrusione",
         "author": {
           "@type": "Person",
           "@id": "https://www.fbtotalsecurity.com/franco-benedetto#person"
         },
-        "pillarPage": "https://francosicurezza.it/allarmi.html",
+        "pillarPage": "https://www.fbtotalsecurity.com/allarmi.html",
         "primaryKeywords": [
           "allarmi wireless",
           "sistemi antintrusione",
@@ -195,21 +195,21 @@
           {
             "@type": "WebPage",
             "name": "Allarmi Wireless Professionali",
-            "url": "https://francosicurezza.it/allarmi.html#wireless",
+            "url": "https://www.fbtotalsecurity.com/allarmi.html#wireless",
             "topicFocus": "tecnologia-wireless",
-            "about": "https://francosicurezza.it/#cluster-allarmi"
+            "about": "https://www.fbtotalsecurity.com/#cluster-allarmi"
           },
           {
             "@type": "WebPage",
             "name": "Sensori Perimetrali Avanzati",
-            "url": "https://francosicurezza.it/allarmi.html#sensori",
+            "url": "https://www.fbtotalsecurity.com/allarmi.html#sensori",
             "topicFocus": "componenti-sistema",
-            "hasPart": "https://francosicurezza.it/#cluster-allarmi"
+            "hasPart": "https://www.fbtotalsecurity.com/#cluster-allarmi"
           },
           {
             "@type": "WebPage",
             "name": "Integrazione con App Mobile",
-            "url": "https://francosicurezza.it/allarmi.html#app",
+            "url": "https://www.fbtotalsecurity.com/allarmi.html#app",
             "topicFocus": "controllo-remoto",
             "isAccessibleForFree": true
           }
@@ -223,19 +223,19 @@
     "supportingPages": [
       {
         "@type": "WebPage",
-        "@id": "https://francosicurezza.it/chi-siamo.html",
+        "@id": "https://www.fbtotalsecurity.com/chi-siamo.html",
         "name": "Chi Siamo - Expertise e Certificazioni",
         "description": "Pagina di supporto per E-E-A-T e credibilità aziendale",
         "additionalType": "AboutPage",
         "mainEntity": {
           "@type": "Organization",
-          "@id": "https://francosicurezza.it/#organization"
+          "@id": "https://www.fbtotalsecurity.com/#organization"
         },
         "about": [
-          "https://francosicurezza.it/#cluster-nebbiogeni",
-          "https://francosicurezza.it/#cluster-serramenti", 
-          "https://francosicurezza.it/#cluster-videosorveglianza",
-          "https://francosicurezza.it/#cluster-allarmi"
+          "https://www.fbtotalsecurity.com/#cluster-nebbiogeni",
+          "https://www.fbtotalsecurity.com/#cluster-serramenti", 
+          "https://www.fbtotalsecurity.com/#cluster-videosorveglianza",
+          "https://www.fbtotalsecurity.com/#cluster-allarmi"
         ],
         "expertise": {
           "@type": "DefinedTerm",
@@ -245,14 +245,14 @@
       },
       {
         "@type": "WebPage", 
-        "@id": "https://francosicurezza.it/ai-content-optimization.html",
+        "@id": "https://www.fbtotalsecurity.com/ai-content-optimization.html",
         "name": "FAQ e Glossario Tecnico",
         "description": "Contenuti informativi per supporto SEO e user experience",
         "about": [
-          "https://francosicurezza.it/#cluster-nebbiogeni",
-          "https://francosicurezza.it/#cluster-serramenti", 
-          "https://francosicurezza.it/#cluster-videosorveglianza",
-          "https://francosicurezza.it/#cluster-allarmi"
+          "https://www.fbtotalsecurity.com/#cluster-nebbiogeni",
+          "https://www.fbtotalsecurity.com/#cluster-serramenti", 
+          "https://www.fbtotalsecurity.com/#cluster-videosorveglianza",
+          "https://www.fbtotalsecurity.com/#cluster-allarmi"
         ],
         "hasPart": [
           {

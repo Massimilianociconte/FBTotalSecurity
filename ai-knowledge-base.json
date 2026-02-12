@@ -1,7 +1,7 @@
 {
   "@context": "https://schema.org",
   "@type": "Dataset",
-  "@id": "https://francosicurezza.it/ai-knowledge-base",
+  "@id": "https://www.fbtotalsecurity.com/ai-knowledge-base",
   "name": "Knowledge Base Sistemi di Sicurezza Avanzati",
   "description": "Base di conoscenza specializzata in sistemi di sicurezza, nebbiogeni, grate e inferriate blindate certificate, videosorveglianza e allarmi",
   "author": {
@@ -81,7 +81,7 @@
       },
       "citation": {
         "@type": "CreativeWork",
-        "@id": "https://francosicurezza.it/standards/en-1627-series"
+        "@id": "https://www.fbtotalsecurity.com/standards/en-1627-series"
       }
     },
     {

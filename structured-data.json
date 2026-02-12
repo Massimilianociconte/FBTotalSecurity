@@ -8,15 +8,15 @@
       "url": "https://www.fbtotalsecurity.com",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://www.fbtotalsecurity.com/logo.png",
+        "url": "https://www.fbtotalsecurity.com/icons/logo_sito_franco.webp",
         "width": 300,
         "height": 100
       },
       "description": "Agenzia plurimandataria specializzata in sistemi di sicurezza avanzati: nebbiogeni, grate e inferriate blindate, videosorveglianza e allarmi. Oltre 20 anni di esperienza nel settore sicurezza.",
       "founder": {
         "@type": "Person",
-        "name": "FB Total Security",
-        "jobTitle": "Agenzia Plurimandataria Sicurezza"
+        "name": "Franco Di Benedetto",
+        "jobTitle": "Fondatore e Specialista Sicurezza"
       },
       "foundingDate": "2000",
       "areaServed": {
@@ -25,7 +25,6 @@
       },
       "contactPoint": {
         "@type": "ContactPoint",
-
         "contactType": "customer service",
         "email": "fb.totalsicurezza@gmail.com",
         "availableLanguage": "Italian"
@@ -50,8 +49,8 @@
       "@type": "WebSite",
       "@id": "https://www.fbtotalsecurity.com/#website",
       "url": "https://www.fbtotalsecurity.com",
-        "name": "FB Total Security - Sistemi di Sicurezza Avanzati",
-        "description": "Sito ufficiale di FB Total Security, specialista in sistemi di sicurezza: nebbiogeni, grate e inferriate blindate, videosorveglianza e allarmi.",
+      "name": "FB Total Security - Sistemi di Sicurezza Avanzati",
+      "description": "Sito ufficiale di FB Total Security, specialista in sistemi di sicurezza: nebbiogeni, grate e inferriate blindate, videosorveglianza e allarmi.",
       "publisher": {
         "@id": "https://www.fbtotalsecurity.com/#organization"
       },
@@ -60,18 +59,13 @@
         "name": "Web Novis",
         "description": "Web development and digital solutions"
       },
-      "inLanguage": "it-IT",
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://www.fbtotalsecurity.com/?s={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
+      "inLanguage": "it-IT"
     },
     {
       "@type": "WebPage",
       "@id": "https://www.fbtotalsecurity.com/#webpage",
       "url": "https://www.fbtotalsecurity.com",
-        "name": "FB Total Security - Sistemi di Sicurezza Avanzati | Nebbiogeni, Grate e Inferriate, Sorveglianza, Allarmi",
+      "name": "FB Total Security - Sistemi di Sicurezza Avanzati | Nebbiogeni, Grate e Inferriate, Sorveglianza, Allarmi",
       "isPartOf": {
         "@id": "https://www.fbtotalsecurity.com/#website"
       },

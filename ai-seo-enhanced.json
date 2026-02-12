@@ -25,7 +25,7 @@
       "url": "https://www.fbtotalsecurity.com",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://www.fbtotalsecurity.com/logo.png",
+        "url": "https://www.fbtotalsecurity.com/icons/logo_sito_franco.webp",
         "width": 300,
         "height": 100
       },
@@ -73,10 +73,11 @@
       ],
       "address": {
         "@type": "PostalAddress",
+        "streetAddress": "Corso Sempione",
         "addressLocality": "Milano",
         "addressRegion": "Lombardia",
         "addressCountry": "IT",
-        "postalCode": "20100"
+        "postalCode": "20154"
       },
       "sameAs": [
         "https://www.facebook.com/profile.php?id=61581141350058",

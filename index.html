@@ -129,10 +129,6 @@
     <meta name="keywords" content="sistemi sicurezza, nebbiogeni, grate e inferriate blindate, videosorveglianza, allarmi, Italia, sicurezza casa, antifurto">
     <meta name="author" content="FB Total Security">
     <link rel="canonical" href="https://www.fbtotalsecurity.com/">
-    <link rel="alternate" hreflang="it" href="https://www.fbtotalsecurity.com/">
-    <link rel="alternate" hreflang="en" href="https://www.fbtotalsecurity.com/">
-    <link rel="alternate" hreflang="x-default" href="https://www.fbtotalsecurity.com/">
-    
     <!-- Cache Control - Using valid HTTP headers -->
     <!-- Note: These meta tags are not standard HTML5, cache control should be handled server-side -->
     <!-- <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
@@ -156,10 +152,7 @@
     <meta property="twitter:description" content="Specialisti in sistemi di sicurezza avanzati: nebbiogeni, grate e inferriate blindate, videosorveglianza e allarmi. Oltre 20 anni di esperienza. Servizi in tutta Italia." data-translate="index-twitter-description">
     <meta property="twitter:image" content="https://www.fbtotalsecurity.com/icons/logo_sito_franco.webp">
     
-    <!-- Hreflang tags -->
-    <link rel="alternate" hreflang="it" href="https://www.fbtotalsecurity.com/?lang=it">
-    <link rel="alternate" hreflang="en" href="https://www.fbtotalsecurity.com/?lang=en">
-    <link rel="alternate" hreflang="x-default" href="https://www.fbtotalsecurity.com/">
+    <!-- Hreflang rimosso: traduzione gestita via JS client-side, non crawlabile da Googlebot -->
     
     <!-- Standard Meta Tags (Schema.org compliant) -->
     <meta name="subject" content="Sistemi di Sicurezza Avanzati">
@@ -216,7 +209,7 @@
           "url": "https://www.fbtotalsecurity.com",
           "logo": {
             "@type": "ImageObject",
-            "url": "https://www.fbtotalsecurity.com/logo.png",
+            "url": "https://www.fbtotalsecurity.com/icons/logo_sito_franco.webp",
             "width": 300,
             "height": 100
           },
@@ -264,10 +257,11 @@
           ],
           "address": {
             "@type": "PostalAddress",
+            "streetAddress": "Corso Sempione",
             "addressLocality": "Milano",
             "addressRegion": "Lombardia", 
             "addressCountry": "IT",
-            "postalCode": "20100"
+            "postalCode": "20154"
           },
           "sameAs": [
             "https://www.facebook.com/profile.php?id=61581141350058",
@@ -326,11 +320,6 @@
             "@id": "https://www.fbtotalsecurity.com/#organization"
           },
           "inLanguage": "it-IT",
-          "potentialAction": {
-            "@type": "SearchAction",
-            "target": "https://www.fbtotalsecurity.com/?s={search_term_string}",
-            "query-input": "required name=search_term_string"
-          },
           "about": [
             {
               "@type": "Thing",
@@ -352,314 +341,90 @@
       ]
     }
     </script>
-    
 
-    
-    <!-- === OTTIMIZZAZIONE FONT E CSS PER LCP === -->
-    
-    <!-- 1. Preload diretto dei file WOFF2 del font Inter con priorità alta -->
-    <link rel="preload" href="https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2" as="font" type="font/woff2" crossorigin="anonymous" fetchpriority="high">
-    <link rel="preload" href="https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa25L7SUc.woff2" as="font" type="font/woff2" crossorigin="anonymous" fetchpriority="high">
-    
-    <!-- 2. CSS Critico Inline per LCP Immediato -->
-    <style>
-        /* Font Fallback Metrics per Inter (essenziale per CLS) */
-        @font-face {
-            font-family: 'Inter Fallback';
-            /* size-adjust: 107%; - Proprietà non standard, rimossa per validazione W3C */
-            ascent-override: 90%;
-            descent-override: 22%;
-            line-gap-override: 0%;
-            src: local('Arial'), local('Helvetica'), local('system-ui');
-        }
-        
-        /* Definizione @font-face per Inter ottimizzata per LCP */
-        @font-face {
-            font-family: 'Inter';
-            font-style: normal;
-            font-weight: 400;
-            font-display: optional; /* Cambiato da swap a optional per LCP migliore */
-            src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2) format('woff2');
-            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-        }
-        @font-face {
-            font-family: 'Inter';
-            font-style: normal;
-            font-weight: 600;
-            font-display: optional; /* Cambiato da swap a optional per LCP migliore */
-            src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa25L7SUc.woff2) format('woff2');
-            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-        }
-        @font-face {
-            font-family: 'Inter';
-            font-style: normal;
-            font-weight: 700;
-            font-display: optional; /* Cambiato da swap a optional per LCP migliore */
-            src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2) format('woff2');
-            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-        }
-
-        /* CSS Critico per Header e Hero Section */
-        :root { 
-            --primary-color: #4caf50; 
-            --primary-light: #66bb6a; 
-            --text-black: #000; 
-            --white: #ffffff;
-            --gray-light: #b0b0b0;
-        }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            background: var(--text-black); 
-            color: var(--white); 
-            font-family: 'Inter', 'Inter Fallback', sans-serif; 
-            line-height: 1.6; 
-            padding-top: 80px; 
-            text-rendering: optimizeLegibility;
-        }
-        .header { 
-            position: fixed; 
-            top: 0; 
-            left: 0; 
-            right: 0; 
-            height: 80px; 
-            min-height: 80px;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(26, 26, 26, 0.95) 100%);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(76, 175, 80, 0.2);
-            z-index: 9999; 
-            transition: all 0.3s ease; 
-        }
-        .nav {
-            padding: 1rem 0;
-        }
-        .nav-container { 
-            max-width: 1200px; 
-            margin: 0 auto; 
-            padding: 0 2rem; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            height: 100%; 
-        }
-
-        /* --- SOLUZIONE CLS --- */
-        /* Dà un'altezza minima fissa al contenitore dei link per evitare 
-           che si ridimensioni al cambio di font. */
-        .hamburger {
-            display: none; /* Desktop default */
-        }
-        .hero { 
-            min-height: calc(100vh - 80px); 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            background: linear-gradient(135deg, #000 0%, #1a1a1a 100%); 
-            text-align: center; 
-            padding: 0 2rem; 
-        }
-        .hero-container { 
-            max-width: 1200px; 
-            margin: 0 auto; 
-            z-index: 2;
-            /* Prevenzione CLS - dimensioni fisse per il container */
-            min-height: 400px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            /* Contenimento del layout per evitare shift */
-            contain: layout style;
-        }
-        .hero-title { 
-            font-size: clamp(2.2rem, 8vw, 5rem); 
-            font-weight: 700; 
-            line-height: 1.1; 
-            margin-bottom: 1.5rem; 
-            background: linear-gradient(135deg, #ffffff, #4caf50); 
-            -webkit-background-clip: text; 
-            -webkit-text-fill-color: transparent; 
-            background-clip: text;
-            /* Prevenzione CLS - dimensioni fisse e layout */
-            min-height: calc(clamp(2.2rem, 8vw, 5rem) * 1.1 * 2);
-            max-width: 800px; 
-            margin-left: auto; 
-            margin-right: auto;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            /* Font fallback per prevenire CLS */
-            font-family: 'Inter', 'Inter Fallback', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        }
-        .hero-subtitle { 
-            font-size: clamp(1.2rem, 2.5vw, 1.5rem); 
-            color: var(--gray-light); 
-            margin: 0 auto 3rem; 
-            max-width: 600px; 
-            line-height: 1.6; 
-            /* --- SOLUZIONE CLS E LCP OTTIMIZZATA --- */
-            /* Riserva uno spazio verticale minimo per circa 3-4 righe di testo. */
-            min-height: calc(clamp(1.2rem, 2.5vw, 1.5rem) * 1.6 * 3);
-            /* Font fallback per prevenire CLS */
-            font-family: 'Inter', 'Inter Fallback', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            /* Contenimento del layout per evitare shift */
-            contain: layout style;
-            /* Ottimizzazioni per LCP - rendering immediato */
-            will-change: auto; /* Evita layer compositing non necessario */
-            transform: translateZ(0); /* Forza hardware acceleration per rendering veloce */
-            /* Preload del contenuto per ridurre rendering delay */
-            content-visibility: auto;
-            /* contain-intrinsic-size: 600px 120px; - Proprietà sperimentale, commentata per validazione W3C */
-            contain: layout style;
-            /* Font display ottimizzato per LCP */
-            /* font-display: optional; - Proprietà da usare in @font-face, non in selettori CSS */
-        }
-        .hero-cta { 
-            display: flex; 
-            flex-direction: column; 
-            gap: 1.5rem; 
-            justify-content: center; 
-            align-items: center; 
-        }
-        @media (max-width: 768px) { 
-            .hero-cta { flex-direction: column; }
-            .hamburger { display: flex; flex-direction: column; cursor: pointer; }
-        }
-        .btn { 
-            display: inline-flex; 
-            align-items: center; 
-            justify-content: center; 
-            padding: 1rem 2rem; 
-            border-radius: 12px; 
-            font-weight: 600; 
-            text-decoration: none; 
-            width: 180px; 
-            height: 48px; 
-            box-sizing: border-box; 
-        }
-        .btn-primary { 
-            background: linear-gradient(135deg, var(--primary-color), var(--primary-light)); 
-            color: var(--text-black); 
-        }
-        .btn-secondary { 
-            background: transparent; 
-            color: var(--primary-color); 
-            border: 2px solid var(--primary-color); 
-        }
-    </style>
-    
-    <!-- 3. Caricamento Asincrono del CSS completo -->
-    <link rel="stylesheet" href="styles.min.css?v=20250917" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="styles.min.css?v=20250917"></noscript>
-    
-
-    
     <!-- Resource Hints for Performance - Ottimizzati per LCP -->
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://www.googletagmanager.com">
     <link rel="preconnect" href="https://connect.facebook.net">
     <link rel="dns-prefetch" href="//www.google-analytics.com">
     <link rel="dns-prefetch" href="//www.facebook.com">
-    
-    <!-- Preload Critical Text Content for LCP - Removed: not used by JavaScript, content is static HTML -->
-    
-    <!-- Preload Critical JavaScript removed - script is deferred -->
-    
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "FB Total Security",
-      "url": "https://www.fbtotalsecurity.com",
-        "logo": "https://www.fbtotalsecurity.com/logo.png",
-      "description": "Creatori di sicurezza specializzati in sistemi di protezione avanzati: nebbiogeni, grate e inferriate blindate, videosorveglianza e allarmi. Oltre 20 anni di esperienza nel settore sicurezza per aziende e privati.",
-      "founder": {
-        "@type": "Person",
-        "name": "FB Total Security",
-        "jobTitle": "Fondatore e Specialista Sicurezza"
-      },
-      "areaServed": "Italia",
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+393802647367",
-        "contactType": "customer service",
-        "email": "fb.totalsicurezza@gmail.com",
-        "availableLanguage": "Italian"
-      },
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Corso Sempione",
-        "addressLocality": "Italia",
-        "postalCode": "20154",
-        "addressRegion": "Lombardia",
-        "addressCountry": "IT"
-      },
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Servizi di Sicurezza",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Sistemi Nebbiogeni",
-              "description": "Installazione sistemi nebbiogeni professionali"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Grate e Inferriate di Sicurezza",
-              "description": "Grate e inferriate blindate antieffrazione"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Videosorveglianza",
-              "description": "Sistemi di videosorveglianza IP e monitoraggio in partnership con CIVIS S.p.A",
-              "provider": {
-                "@type": "Organization",
-                "name": "CIVIS S.p.A",
-                "description": "Istituto di Vigilanza Privata leader nel settore"
-              }
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Sistemi di Allarme",
-              "description": "Centrali antifurto e sistemi di allarme"
-            }
-          }
-        ]
-      },
-      "sameAs": [
-        "https://www.facebook.com/profile.php?id=61581141350058",
-        "https://www.instagram.com/francosicurezza",
-        "https://x.com/FBTotalSecurity"
-      ]
-    }
-    </script>
-    
-    <!-- Breadcrumb Schema -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
+
+        <!-- Structured Data - Organization with OfferCatalog -->
+        <script type="application/ld+json">
+        {"@context":"https://schema.org","@type":"Organization","@id":"https://www.fbtotalsecurity.com/#organization-detail","name":"FB Total Security","url":"https://www.fbtotalsecurity.com","logo":"https://www.fbtotalsecurity.com/icons/logo_sito_franco.webp","description":"Creatori di sicurezza specializzati in sistemi di protezione avanzati: nebbiogeni, grate e inferriate blindate, videosorveglianza e allarmi. Oltre 20 anni di esperienza nel settore sicurezza per aziende e privati.","founder":{"@type":"Person","name":"Franco Di Benedetto","jobTitle":"Fondatore e Specialista Sicurezza"},"areaServed":"Italia","telephone":"+393802647367","contactPoint":{"@type":"ContactPoint","telephone":"+393802647367","contactType":"customer service","email":"fb.totalsicurezza@gmail.com","availableLanguage":"Italian"},"address":{"@type":"PostalAddress","streetAddress":"Corso Sempione","addressLocality":"Milano","postalCode":"20154","addressRegion":"Lombardia","addressCountry":"IT"},"hasOfferCatalog":{"@type":"OfferCatalog","name":"Servizi di Sicurezza","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Sistemi Nebbiogeni","description":"Installazione sistemi nebbiogeni professionali"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Grate e Inferriate di Sicurezza","description":"Grate e inferriate blindate antieffrazione"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Videosorveglianza","description":"Sistemi di videosorveglianza IP e monitoraggio in partnership con CIVIS S.p.A","provider":{"@type":"Organization","name":"CIVIS S.p.A","description":"Istituto di Vigilanza Privata leader nel settore"}}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Sistemi di Allarme","description":"Centrali antifurto e sistemi di allarme"}}]},"sameAs":["https://www.facebook.com/profile.php?id=61581141350058","https://www.linkedin.com/in/francodibenedetto"]}
+        </script>
+
+        <!-- Breadcrumb Schema -->
+        <script type="application/ld+json">
         {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://www.fbtotalsecurity.com/"
+          "@context": "https://schema.org",
+          "@type": "BreadcrumbList",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "name": "Home",
+              "item": "https://www.fbtotalsecurity.com/"
+            }
+          ]
         }
-      ]
-    }
-    </script>
+        </script>
+
+        <!-- LocalBusiness Schema for Local SEO -->
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "LocalBusiness",
+            "@id": "https://www.fbtotalsecurity.com/#localbusiness",
+            "name": "FB Total Security",
+            "image": "https://www.fbtotalsecurity.com/icons/logo_sito_franco.webp",
+            "url": "https://www.fbtotalsecurity.com",
+            "telephone": "+393802647367",
+            "email": "fb.totalsicurezza@gmail.com",
+            "description": "Agenzia specializzata in sistemi di sicurezza avanzati: nebbiogeni antifurto, grate e inferriate blindate certificate, videosorveglianza professionale e sistemi di allarme. Servizi in tutta Italia.",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Corso Sempione",
+                "addressLocality": "Milano",
+                "postalCode": "20154",
+                "addressRegion": "Lombardia",
+                "addressCountry": "IT"
+            },
+            "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 45.4773,
+                "longitude": 9.1715
+            },
+            "openingHoursSpecification": [
+                {
+                    "@type": "OpeningHoursSpecification",
+                    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                    "opens": "09:00",
+                    "closes": "18:00"
+                }
+            ],
+            "priceRange": "$$",
+            "areaServed": {
+                "@type": "Country",
+                "name": "Italia"
+            },
+            "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "Servizi di Sicurezza",
+                "itemListElement": [
+                    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Sistemi Nebbiogeni"}},
+                    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Grate e Inferriate Blindate"}},
+                    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Videosorveglianza Professionale"}},
+                    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Sistemi di Allarme"}}
+                ]
+            },
+            "sameAs": [
+                "https://www.facebook.com/profile.php?id=61581141350058",
+                "https://www.instagram.com/francosicurezza",
+                "https://x.com/FBTotalSecurity",
+                "https://www.linkedin.com/in/francodibenedetto"
+            ]
+        }
+        </script>
 
 <style>
 /* CLS Prevention Styles */
@@ -740,6 +505,7 @@ img {
                     <li><a href="serramenti.html" class="nav-link" data-translate="nav-serramenti" title="Grate e inferriate blindate per porte e finestre">Grate e Inferriate</a></li>
                     <li><a href="sorveglianza.html" class="nav-link" data-translate="nav-sorveglianza" title="Sistemi di videosorveglianza avanzati">Sorveglianza</a></li>
                     <li><a href="allarmi.html" class="nav-link" data-translate="nav-allarmi" title="Sistemi di allarme intelligenti">Allarmi</a></li>
+                    <li><a href="blog/" class="nav-link" title="Blog sulla sicurezza: guide e consigli">Blog</a></li>
                     <li><a href="lavora-con-noi.html" class="nav-link" data-translate="nav-lavora-con-noi" title="Opportunità di lavoro e carriera">Lavora con noi</a></li>
                     <li><a href="chi-siamo.html" class="nav-link" data-translate="nav-chi-siamo" title="Scopri la nostra azienda e la nostra esperienza">Chi siamo</a></li>
                     <li><a href="#contatti" class="nav-link cta" data-translate="nav-contatti" title="Contattaci per una consulenza gratuita">Contatti</a></li>
@@ -1561,17 +1327,16 @@ img {
                 <div class="footer-section">
                     <h4 data-translate="footer-info-title">Informazioni</h4>
                     <ul>
-                        <li><a href="#" title="Consulta la nostra informativa sulla privacy">Privacy Policy</a></li>
-                        <li><a href="#" title="Scopri la nostra politica sui cookie">Cookie Policy</a></li>
-                        <li><a href="#" title="Leggi i nostri termini di servizio">Termini di Servizio</a></li>
+                        <li><a href="privacy-policy.html" title="Consulta la nostra informativa sulla privacy">Privacy Policy</a></li>
+                        <li><a href="cookie-policy.html" title="Scopri la nostra politica sui cookie">Cookie Policy</a></li>
                         <li><a href="termini-condizioni.html" title="Leggi i nostri termini e condizioni di servizio">Termini e Condizioni</a></li>
-                        <li><a href="#" title="Visualizza le nostre certificazioni di sicurezza">Certificazioni</a></li>
+                        <li><a href="blog/" title="Leggi il nostro blog sulla sicurezza">Blog Sicurezza</a></li>
                         <li><a title="Inserisci la tua azienda gratis su professionisti Italia" href="https://www.professionisti-italia.it" target="_blank" rel="noopener">Inserisci la tua azienda gratis</a></li>
                     </ul>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p data-translate="footer-copyright">&copy; 2025 FB Total Security. Tutti i diritti riservati. | P.IVA: 12345678901</p>
+                <p data-translate="footer-copyright">&copy; 2026 FB Total Security. Tutti i diritti riservati.</p>
                 <p data-translate="footer-created-by">Creato e Curato da Web Novis</p>
                 <p class="webnovis-contact">
                     <span data-translate="footer-webnovis-contact">Per una soluzione cucita su misura per te</span> 

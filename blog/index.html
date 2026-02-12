@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Sicurezza | FB Total Security - Guide e Consigli</title>
+    <meta name="description" content="Il blog di FB Total Security: guide complete su nebbiogeni, grate blindate, videosorveglianza e allarmi. Consigli pratici per proteggere casa e azienda.">
+    <meta name="author" content="FB Total Security">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.fbtotalsecurity.com/blog/">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    
+    <link rel="preload" href="https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" href="https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa25L7SUc.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+    
+    <style>
+        @font-face { font-family: 'Inter Fallback'; size-adjust: 107%; ascent-override: 90%; descent-override: 22%; line-gap-override: 0%; src: local('Arial'), local('Helvetica'), local('system-ui'); }
+        @font-face { font-family: 'Inter'; font-style: normal; font-weight: 400; font-display: swap; src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2) format('woff2'); }
+        @font-face { font-family: 'Inter'; font-style: normal; font-weight: 600; font-display: swap; src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa25L7SUc.woff2) format('woff2'); }
+        @font-face { font-family: 'Inter'; font-style: normal; font-weight: 700; font-display: swap; src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2) format('woff2'); }
+        
+        :root { --primary: #4caf50; --primary-light: #66bb6a; --bg: #000; --bg-card: #111; --text: #fff; --text-muted: #b0b0b0; --border: rgba(76,175,80,0.2); }
+        *, :after, :before { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: var(--bg); color: var(--text); font-family: 'Inter', 'Inter Fallback', sans-serif; line-height: 1.6; padding-top: 110px; }
+        a { color: var(--primary); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        
+        .header { position: fixed; top: 0; left: 0; right: 0; height: 110px; background: linear-gradient(135deg, rgba(0,0,0,.95), rgba(26,26,26,.95)); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); z-index: 9999; }
+        .nav-container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center; height: 100%; }
+        .logo-link { display: flex; align-items: center; gap: .75rem; color: inherit; text-decoration: none; }
+        .logo-image { width: 47px; height: 40px; }
+        .logo-title { font-size: 1.8rem; font-weight: 700; }
+        .tagline { font-size: .9rem; color: var(--primary); margin: 0; line-height: 1; }
+        .nav-menu { display: flex; list-style: none; gap: 0.8rem; align-items: center; }
+        .nav-link { color: var(--text); text-decoration: none; padding: 0.5rem 1rem; border-radius: 8px; font-weight: 500; transition: all .3s; }
+        .nav-link:hover { background: rgba(76,175,80,.1); color: var(--primary); text-decoration: none; }
+        .nav-link.cta { background: linear-gradient(135deg, var(--primary), var(--primary-light)); color: #000; font-weight: 600; }
+        .nav-link.active { color: var(--primary); border-bottom: 2px solid var(--primary); }
+        .hamburger { display: none; }
+        @media (max-width: 768px) { .nav-menu { display: none; } .hamburger { display: flex; flex-direction: column; cursor: pointer; gap: 4px; z-index: 10001; } .hamburger span { width: 25px; height: 3px; background: var(--text); border-radius: 2px; } }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        
+        .blog-hero { min-height: 35vh; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #000, #1a1a1a); text-align: center; padding: 3rem 1rem; }
+        .blog-hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 700; margin-bottom: 1rem; background: linear-gradient(135deg, #fff, var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+        .blog-hero p { color: var(--text-muted); font-size: 1.15rem; max-width: 650px; margin: 0 auto; }
+        
+        .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 2rem; padding: 4rem 0; }
+        @media (max-width: 400px) { .blog-grid { grid-template-columns: 1fr; } }
+        
+        .blog-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; transition: all .3s; display: flex; flex-direction: column; }
+        .blog-card:hover { transform: translateY(-5px); box-shadow: 0 12px 40px rgba(76,175,80,.12); border-color: rgba(76,175,80,.4); }
+        .blog-card a { text-decoration: none; color: inherit; display: flex; flex-direction: column; height: 100%; }
+        .card-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
+        .card-category { display: inline-block; background: rgba(76,175,80,.1); color: var(--primary); padding: 0.25rem 0.75rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600; margin-bottom: 0.75rem; width: fit-content; }
+        .card-title { font-size: 1.25rem; font-weight: 700; color: var(--text); margin-bottom: 0.75rem; line-height: 1.3; }
+        .card-excerpt { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; flex: 1; }
+        .card-meta { display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.5rem; border-top: 1px solid var(--border); font-size: 0.85rem; color: var(--text-muted); }
+        .card-read-more { color: var(--primary); font-weight: 600; }
+        
+        .blog-categories { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; margin-bottom: 2rem; padding: 2rem 0 0; }
+        .cat-btn { background: rgba(26,26,26,.8); border: 1px solid var(--border); color: var(--text-muted); padding: 0.5rem 1.25rem; border-radius: 25px; cursor: pointer; font-size: 0.9rem; transition: all .3s; font-family: inherit; }
+        .cat-btn:hover, .cat-btn.active { background: rgba(76,175,80,.15); border-color: var(--primary); color: var(--primary); }
+        
+        .footer { border-top: 1px solid var(--border); padding: 3rem 0; text-align: center; margin-top: 2rem; }
+        .footer p { color: var(--text-muted); margin-bottom: 0.5rem; }
+        .footer a { color: var(--primary); }
+    </style>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "name": "Blog Sicurezza - FB Total Security",
+        "description": "Guide complete, consigli pratici e approfondimenti tecnici su nebbiogeni, grate blindate, videosorveglianza e sistemi di allarme per la protezione di casa e azienda.",
+        "url": "https://www.fbtotalsecurity.com/blog/",
+        "publisher": {
+            "@type": "Organization",
+            "name": "FB Total Security",
+            "url": "https://www.fbtotalsecurity.com",
+            "logo": {
+                "@type": "ImageObject",
+                "url": "https://www.fbtotalsecurity.com/icons/logo_sito_franco.webp"
+            }
+        },
+        "blogPost": [
+            {"@type": "BlogPosting", "headline": "Come Funziona un Nebbiogeno Antifurto: Guida Completa 2026", "url": "https://www.fbtotalsecurity.com/blog/come-funziona-nebbiogeno-antifurto.html"},
+            {"@type": "BlogPosting", "headline": "Grate Blindate o Inferriate: Quale Scegliere per le Finestre", "url": "https://www.fbtotalsecurity.com/blog/grate-blindate-o-inferriate-quale-scegliere.html"},
+            {"@type": "BlogPosting", "headline": "Videosorveglianza e GDPR: Regole per Telecamere in Condominio", "url": "https://www.fbtotalsecurity.com/blog/videosorveglianza-gdpr-telecamere-condominio.html"},
+            {"@type": "BlogPosting", "headline": "Detrazione Fiscale Sistemi Sicurezza 2026: Guida Completa", "url": "https://www.fbtotalsecurity.com/blog/detrazione-fiscale-sistemi-sicurezza-2026.html"},
+            {"@type": "BlogPosting", "headline": "Classe Antieffrazione RC1-RC6: Cosa Significa e Quale Scegliere", "url": "https://www.fbtotalsecurity.com/blog/classe-antieffrazione-rc1-rc6-guida.html"},
+            {"@type": "BlogPosting", "headline": "Allarme Wireless o Filare: Pro e Contro a Confronto", "url": "https://www.fbtotalsecurity.com/blog/allarme-wireless-o-filare-confronto.html"},
+            {"@type": "BlogPosting", "headline": "Come Proteggere il Negozio dai Furti: Guida Pratica", "url": "https://www.fbtotalsecurity.com/blog/come-proteggere-negozio-dai-furti.html"},
+            {"@type": "BlogPosting", "headline": "Telecamere IP vs Analogiche: Quale Scegliere nel 2026", "url": "https://www.fbtotalsecurity.com/blog/telecamere-ip-vs-analogiche-confronto.html"},
+            {"@type": "BlogPosting", "headline": "Come Scegliere un Sistema di Allarme per Casa", "url": "https://www.fbtotalsecurity.com/blog/come-scegliere-sistema-allarme-casa.html"},
+            {"@type": "BlogPosting", "headline": "Nebbiogeni per Negozi: Protezione Immediata dai Furti", "url": "https://www.fbtotalsecurity.com/blog/nebbiogeni-per-negozi-protezione-furti.html"},
+            {"@type": "BlogPosting", "headline": "Inferriate Blindate Senza Opere Murarie: Come Si Installano", "url": "https://www.fbtotalsecurity.com/blog/inferriate-blindate-senza-opere-murarie.html"},
+            {"@type": "BlogPosting", "headline": "Sicurezza per Ville e Case Isolate: Guida Completa", "url": "https://www.fbtotalsecurity.com/blog/sicurezza-ville-case-isolate-guida.html"},
+            {"@type": "BlogPosting", "headline": "Sensori Perimetrali: Tipologie e Come Sceglierli", "url": "https://www.fbtotalsecurity.com/blog/sensori-perimetrali-tipologie-guida.html"},
+            {"@type": "BlogPosting", "headline": "Videosorveglianza 4K: Vantaggi e Guida alla Scelta", "url": "https://www.fbtotalsecurity.com/blog/videosorveglianza-4k-vantaggi-guida.html"},
+            {"@type": "BlogPosting", "headline": "Come Rendere Sicura la Casa: 10 Consigli degli Esperti", "url": "https://www.fbtotalsecurity.com/blog/come-rendere-sicura-casa-10-consigli.html"},
+            {"@type": "BlogPosting", "headline": "Collegamento Allarme al 112: Come Funziona", "url": "https://www.fbtotalsecurity.com/blog/collegamento-allarme-112-come-funziona.html"},
+            {"@type": "BlogPosting", "headline": "Bonus Sicurezza Casa 2026: Tutto Quello che Devi Sapere", "url": "https://www.fbtotalsecurity.com/blog/bonus-sicurezza-casa-2026-guida.html"},
+            {"@type": "BlogPosting", "headline": "Grate di Sicurezza per Finestre: Guida alla Scelta", "url": "https://www.fbtotalsecurity.com/blog/grate-sicurezza-finestre-guida-scelta.html"},
+            {"@type": "BlogPosting", "headline": "Sicurezza Aziendale: Guida Completa alla Protezione", "url": "https://www.fbtotalsecurity.com/blog/sicurezza-aziendale-guida-completa.html"},
+            {"@type": "BlogPosting", "headline": "Nebbiogeni UR Fog: Come Funzionano e Perche Sceglierli", "url": "https://www.fbtotalsecurity.com/blog/nebbiogeni-ur-fog-come-funzionano.html"}
+        ]
+    }
+    </script>
+</head>
+<body>
+    <header class="header">
+        <nav>
+            <div class="nav-container">
+                <div class="logo">
+                    <a href="../index.html" class="logo-link" title="FB Total Security - Torna alla homepage">
+                        <img src="../icons/logo_sito_franco_small.webp" alt="FB Total Security Logo" class="logo-image" loading="eager" width="47" height="40">
+                        <div class="logo-text">
+                            <span class="logo-title">FB Total Security</span>
+                            <p class="tagline">Creatori di Sicurezza</p>
+                        </div>
+                    </a>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="../nebbiogeni.html" class="nav-link">Nebbiogeni</a></li>
+                    <li><a href="../serramenti.html" class="nav-link">Grate e Inferriate</a></li>
+                    <li><a href="../sorveglianza.html" class="nav-link">Sorveglianza</a></li>
+                    <li><a href="../allarmi.html" class="nav-link">Allarmi</a></li>
+                    <li><a href="./" class="nav-link active">Blog</a></li>
+                    <li><a href="../chi-siamo.html" class="nav-link">Chi siamo</a></li>
+                    <li><a href="../index.html#contatti" class="nav-link cta">Contatti</a></li>
+                </ul>
+                <div class="hamburger"><span></span><span></span><span></span></div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="blog-hero">
+            <div>
+                <h1>Blog Sicurezza</h1>
+                <p>Guide complete, consigli pratici e approfondimenti tecnici per proteggere la tua casa e la tua azienda con i migliori sistemi di sicurezza.</p>
+            </div>
+        </section>
+
+        <section class="container">
+            <div class="blog-categories">
+                <button class="cat-btn active" onclick="filterPosts('all')">Tutti gli articoli</button>
+                <button class="cat-btn" onclick="filterPosts('nebbiogeni')">Nebbiogeni</button>
+                <button class="cat-btn" onclick="filterPosts('grate')">Grate e Inferriate</button>
+                <button class="cat-btn" onclick="filterPosts('sorveglianza')">Videosorveglianza</button>
+                <button class="cat-btn" onclick="filterPosts('allarmi')">Allarmi</button>
+                <button class="cat-btn" onclick="filterPosts('guide')">Guide Pratiche</button>
+                <button class="cat-btn" onclick="filterPosts('normative')">Normative e Bonus</button>
+            </div>
+
+            <div class="blog-grid" id="blog-grid">
+                
+                <article class="blog-card" data-category="nebbiogeni">
+                    <a href="come-funziona-nebbiogeno-antifurto.html">
+                        <div class="card-body">
+                            <span class="card-category">Nebbiogeni</span>
+                            <h2 class="card-title">Come Funziona un Nebbiogeno Antifurto: Guida Completa 2026</h2>
+                            <p class="card-excerpt">Scopri il funzionamento dei sistemi nebbiogeni antifurto: dalla tecnologia di nebulizzazione ai vantaggi per la protezione di case, negozi e uffici. Tutto quello che devi sapere.</p>
+                        </div>
+                        <div class="card-meta">
+                            <span>12 Feb 2026 &middot; 8 min</span>
+                            <span class="card-read-more">Leggi &rarr;</span>
+                        </div>
+                    </a>
+                </article>
+
+                <article class="blog-card" data-category="grate">
+                    <a href="grate-blindate-o-inferriate-quale-scegliere.html">
+                        <div class="card-body">
+                            <span class="card-category">Grate e Inferriate</span>
+                            <h2 class="card-title">Grate Blindate o Inferriate: Quale Scegliere per le Finestre</h2>
+                            <p class="card-excerpt">Confronto dettagliato tra grate blindate e inferriate di sicurezza. Vantaggi, svantaggi, classi antieffrazione e consigli per la scelta migliore per le tue finestre.</p>
+                        </div>
+                        <div class="card-meta">
+                            <span>11 Feb 2026 &middot; 10 min</span>
+                            <span class="card-read-more">Leggi &rarr;</span>
+                        </div>
+                    </a>
+                </article>
+
+                <article class="blog-card" data-category="sorveglianza">
+                    <a href="videosorveglianza-gdpr-telecamere-condominio.html">
+                        <div class="card-body">
+                            <span class="card-category">Videosorveglianza</span>
+                            <h2 class="card-title">Videosorveglianza e GDPR: Regole per Telecamere in Condominio</h2>
+                            <p class="card-excerpt">Normativa GDPR per le telecamere in condominio: quando serve autorizzazione, obblighi di segnaletica, tempi di conservazione e sanzioni. Guida aggiornata al 2026.</p>
+                        </div>
+                        <div class="card-meta">
+                            <span>10 Feb 2026 &middot; 9 min</span>
+                            <span class="card-read-more">Leggi &rarr;</span>
+                        </div>
+                    </a>
+                </article>
+
+                <article class="blog-card" data-category="normative">
+                    <a href="detrazione-fiscale-sistemi-sicurezza-2026.html">
+                        <div class="card-body">
+                            <span class="card-category">Normative e Bonus</span>
+                            <h2 class="card-title">Detrazione Fiscale Sistemi Sicurezza 2026: Guida Completa</h2>
+                            <p class="card-excerpt">Come ottenere la detrazione fiscale per l'installazione di sistemi di sicurezza: allarmi, videosorveglianza, grate blindate e inferriate. Requisiti, percentuali e documentazione.</p>
+                        </div>
+                        <div class="card-meta">
+                            <span>9 Feb 2026 &middot; 11 min</span>
+                            <span class="card-read-more">Leggi &rarr;</span>
+                        </div>
+                    </a>
+                </article>
+
+                <article class="blog-card" data-category="grate">
+                    <a href="classe-antieffrazione-rc1-rc6-guida.html">
+                        <div class="card-body">
+                            <span class="card-category">Grate e Inferriate</span>
+                            <h2 class="card-title">Classe Antieffrazione RC1-RC6: Cosa Significa e Quale Scegliere</h2>
+                            <p class="card-excerpt">Guida completa alle classi di resistenza antieffrazione: da RC1 a RC6. Cosa significano, come vengono testate e quale classe scegliere per la tua sicurezza.</p>
+                        </div>
+                        <div class="card-meta">
+                            <span>8 Feb 2026 &middot; 7 min</span>
+                            <span class="card-read-more">Leggi &rarr;</span>
+                        </div>
+                    </a>
+                </article>
+
+                <article class="blog-card" data-category="allarmi">
+                    <a href="allarme-wireless-o-filare-confronto.html">
+                        <div class="card-body">
+                            <span class="card-category">Allarmi</span>
+                            <h2 class="card-title">Allarme Wireless o Filare: Pro e Contro a Confronto</h2>
+                            <p class="card-excerpt">Confronto completo tra sistemi di allarme wireless e filari: affidabilita, costi di installazione, manutenzione, sicurezza e quale scegliere per la tua situazione.</p>
+                        </div>
+                        <div class="card-meta">
+                            <span>7 Feb 2026 &middot; 8 min</span>
+                            <span class="card-read-more">Leggi &rarr;</span>
+                        </div>
+                    </a>
+                </article>
+
+                <article class="blog-card" data-category="guide">
+                    <a href="come-proteggere-negozio-dai-furti.html">
+                        <div class="card-body">
+                            <span class="card-category">Guide Pratiche</span>
+                            <h2 class="card-title">Come Proteggere il Negozio dai Furti: Guida Pratica</h2>
+                            <p class="card-excerpt">Strategie e sistemi per proteggere il tuo negozio: dai nebbiogeni alle telecamere, dagli allarmi alle best practice. Soluzioni concrete per ridurre il rischio furti.</p>
+                        </div>
+                        <div class="card-meta">
+                            <span>6 Feb 2026 &middot; 9 min</span>
+                            <span class="card-read-more">Leggi &rarr;</span>
+                        </div>
+                    </a>
+                </article>
+
+                <article class="blog-card" data-category="sorveglianza">
+                    <a href="telecamere-ip-vs-analogiche-confronto.html">
+                        <div class="card-body">
+                            <span class="card-category">Videosorveglianza</span>
+                            <h2 class="card-title">Telecamere IP vs Analogiche: Quale Scegliere nel 2026</h2>
+                            <p class="card-excerpt">Confronto tecnico tra telecamere IP digitali e analogiche: qualita immagine, costi, installazione, scalabilita e consigli per la scelta giusta nel 2026.</p>
+                        </div>
+                        <div class="card-meta">
+                            <span>5 Feb 2026 &middot; 7 min</span>
+                            <span class="card-read-more">Leggi &rarr;</span>
+                        </div>
+                    </a>
+                </article>
+
+                <article class="blog-card" data-category="allarmi">
+                    <a href="come-scegliere-sistema-allarme-casa.html">
+                        <div class="card-body">
+                            <span class="card-category">Allarmi</span>
+                            <h2 class="card-title">Come Scegliere un Sistema di Allarme per Casa</h2>
+                            <p class="card-excerpt">Guida definitiva alla scelta del sistema di allarme ideale per la tua casa: tipologie, caratteristiche essenziali, marchi consigliati e errori da evitare.</p>
+                        </div>
+                        <div class="card-meta">
+                            <span>4 Feb 2026 &middot; 10 min</span>
+                            <span class="card-read-more">Leggi &rarr;</span>
+                        </div>
+                    </a>
+                </article>
+
+                <article class="blog-card" data-category="nebbiogeni">
+                    <a href="nebbiogeni-per-negozi-protezione-furti.html">
+                        <div class="card-body">
+                            <span class="card-category">Nebbiogeni</span>
+                            <h2 class="card-title">Nebbiogeni per Negozi: Protezione Immediata dai Furti</h2>
+                            <p class="card-excerpt">Perche i nebbiogeni sono la soluzione ideale per proteggere il tuo negozio. Funzionamento, vantaggi rispetto agli allarmi tradizionali e casi di utilizzo reali.</p>
+                        </div>
+                        <div class="card-meta">
+                            <span>3 Feb 2026 &middot; 7 min</span>
+                            <span class="card-read-more">Leggi &rarr;</span>
+                        </div>
+                    </a>
+                </article>
+
+                <article class="blog-card" data-category="grate">
+                    <a href="inferriate-blindate-senza-opere-murarie.html">
+                        <div class="card-body">
+                            <span class="card-category">Grate e Inferriate</span>
+                            <h2 class="card-title">Inferriate Blindate Senza Opere Murarie: Come Si Installano</h2>
+                            <p class="card-excerpt">Installazione di inferriate blindate senza danneggiare muri e pavimenti: tecnologie di fissaggio innovative, vantaggi per case in affitto e tempi di installazione.</p>
+                        </div>
+                        <div class="card-meta">
+                            <span>2 Feb 2026 &middot; 6 min</span>
+                            <span class="card-read-more">Leggi &rarr;</span>
+                        </div>
+                    </a>
+                </article>
+
+                <article class="blog-card" data-category="guide">
+                    <a href="sicurezza-ville-case-isolate-guida.html">
+                        <div class="card-body">
+                            <span class="card-category">Guide Pratiche</span>
+                            <h2 class="card-title">Sicurezza per Ville e Case Isolate: Guida Completa</h2>
+                            <p class="card-excerpt">Come proteggere efficacemente ville e case isolate: sistemi perimetrali, nebbiogeni, videosorveglianza con AI e strategie di sicurezza multilivello.</p>
+                        </div>
+                        <div class="card-meta">
+                            <span>1 Feb 2026 &middot; 11 min</span>
+                            <span class="card-read-more">Leggi &rarr;</span>
+                        </div>
+                    </a>
+                </article>
+
+                <article class="blog-card" data-category="allarmi">
+                    <a href="sensori-perimetrali-tipologie-guida.html">
+                        <div class="card-body">
+                            <span class="card-category">Allarmi</span>
+                            <h2 class="card-title">Sensori Perimetrali: Tipologie e Come Sceglierli</h2>
+                            <p class="card-excerpt">Guida completa ai sensori perimetrali: infrarossi, microonda, barriere, interrati. Come funzionano, dove installarli e quale tipologia scegliere.</p>
+                        </div>
+                        <div class="card-meta">
+                            <span>31 Gen 2026 &middot; 8 min</span>
+                            <span class="card-read-more">Leggi &rarr;</span>
+                        </div>
+                    </a>
+                </article>
+
+                <article class="blog-card" data-category="sorveglianza">
+                    <a href="videosorveglianza-4k-vantaggi-guida.html">
+                        <div class="card-body">
+                            <span class="card-category">Videosorveglianza</span>
+                            <h2 class="card-title">Videosorveglianza 4K: Vantaggi e Guida alla Scelta</h2>
+                            <p class="card-excerpt">Perche passare alla videosorveglianza in 4K: qualita immagine, zoom digitale, riconoscimento targhe e volti. Confronto con sistemi HD e Full HD.</p>
+                        </div>
+                        <div class="card-meta">
+                            <span>30 Gen 2026 &middot; 7 min</span>
+                            <span class="card-read-more">Leggi &rarr;</span>
+                        </div>
+                    </a>
+                </article>
+
+                <article class="blog-card" data-category="guide">
+                    <a href="come-rendere-sicura-casa-10-consigli.html">
+                        <div class="card-body">
+                            <span class="card-category">Guide Pratiche</span>
+                            <h2 class="card-title">Come Rendere Sicura la Casa: 10 Consigli degli Esperti</h2>
+                            <p class="card-excerpt">I 10 consigli fondamentali degli esperti di sicurezza per proteggere la tua abitazione: dall'illuminazione esterna ai sistemi integrati di allarme e videosorveglianza.</p>
+                        </div>
+                        <div class="card-meta">
+                            <span>29 Gen 2026 &middot; 12 min</span>
+                            <span class="card-read-more">Leggi &rarr;</span>
+                        </div>
+                    </a>
+                </article>
+
+                <article class="blog-card" data-category="allarmi">
+                    <a href="collegamento-allarme-112-come-funziona.html">
+                        <div class="card-body">
+                            <span class="card-category">Allarmi</span>
+                            <h2 class="card-title">Collegamento Allarme al 112: Come Funziona</h2>
+                            <p class="card-excerpt">Come collegare il sistema di allarme al 112 e alle forze dell'ordine: requisiti tecnici, procedure, costi e vantaggi del collegamento diretto alla centrale operativa.</p>
+                        </div>
+                        <div class="card-meta">
+                            <span>28 Gen 2026 &middot; 8 min</span>
+                            <span class="card-read-more">Leggi &rarr;</span>
+                        </div>
+                    </a>
+                </article>
+
+                <article class="blog-card" data-category="normative">
+                    <a href="bonus-sicurezza-casa-2026-guida.html">
+                        <div class="card-body">
+                            <span class="card-category">Normative e Bonus</span>
+                            <h2 class="card-title">Bonus Sicurezza Casa 2026: Tutto Quello che Devi Sapere</h2>
+                            <p class="card-excerpt">Guida aggiornata al Bonus Sicurezza 2026: requisiti, percentuali di detrazione, interventi ammessi, documentazione necessaria e come fare domanda.</p>
+                        </div>
+                        <div class="card-meta">
+                            <span>27 Gen 2026 &middot; 9 min</span>
+                            <span class="card-read-more">Leggi &rarr;</span>
+                        </div>
+                    </a>
+                </article>
+
+                <article class="blog-card" data-category="grate">
+                    <a href="grate-sicurezza-finestre-guida-scelta.html">
+                        <div class="card-body">
+                            <span class="card-category">Grate e Inferriate</span>
+                            <h2 class="card-title">Grate di Sicurezza per Finestre: Guida alla Scelta</h2>
+                            <p class="card-excerpt">Come scegliere le grate di sicurezza per le finestre: tipologie (fisse, apribili, a scomparsa), materiali, classi di resistenza e design moderno.</p>
+                        </div>
+                        <div class="card-meta">
+                            <span>26 Gen 2026 &middot; 8 min</span>
+                            <span class="card-read-more">Leggi &rarr;</span>
+                        </div>
+                    </a>
+                </article>
+
+                <article class="blog-card" data-category="guide">
+                    <a href="sicurezza-aziendale-guida-completa.html">
+                        <div class="card-body">
+                            <span class="card-category">Guide Pratiche</span>
+                            <h2 class="card-title">Sicurezza Aziendale: Guida Completa alla Protezione</h2>
+                            <p class="card-excerpt">Strategie e soluzioni complete per la sicurezza aziendale: controllo accessi, videosorveglianza, allarmi perimetrali, nebbiogeni e conformita normativa.</p>
+                        </div>
+                        <div class="card-meta">
+                            <span>25 Gen 2026 &middot; 13 min</span>
+                            <span class="card-read-more">Leggi &rarr;</span>
+                        </div>
+                    </a>
+                </article>
+
+                <article class="blog-card" data-category="nebbiogeni">
+                    <a href="nebbiogeni-ur-fog-come-funzionano.html">
+                        <div class="card-body">
+                            <span class="card-category">Nebbiogeni</span>
+                            <h2 class="card-title">Nebbiogeni UR Fog: Come Funzionano e Perche Sceglierli</h2>
+                            <p class="card-excerpt">Approfondimento tecnico sui nebbiogeni UR Fog: tecnologia brevettata, modelli disponibili, certificazioni e perche sono il riferimento nel settore sicurezza.</p>
+                        </div>
+                        <div class="card-meta">
+                            <span>24 Gen 2026 &middot; 9 min</span>
+                            <span class="card-read-more">Leggi &rarr;</span>
+                        </div>
+                    </a>
+                </article>
+
+            </div>
+        </section>
+
+        <section style="padding: 3rem 1rem; text-align: center; background: linear-gradient(135deg, rgba(26,26,26,.95), rgba(40,40,40,.95)); border-top: 1px solid var(--border);">
+            <div class="container">
+                <h2 style="font-size: 1.8rem; margin-bottom: 1rem; color: var(--text);">Hai bisogno di una consulenza personalizzata?</h2>
+                <p style="color: var(--text-muted); max-width: 600px; margin: 0 auto 2rem;">I nostri esperti sono a tua disposizione per valutare le tue esigenze di sicurezza e consigliarti la soluzione migliore.</p>
+                <a href="../index.html#contatti" style="display: inline-block; padding: 1rem 2.5rem; background: linear-gradient(135deg, var(--primary), var(--primary-light)); color: #000; font-weight: 600; border-radius: 12px; text-decoration: none; transition: all .3s;">Richiedi Consulenza Gratuita</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 FB Total Security. Tutti i diritti riservati.</p>
+            <p style="font-size: 0.85rem; margin-top: 0.5rem;">
+                <a href="../index.html">Home</a> &middot; 
+                <a href="../nebbiogeni.html">Nebbiogeni</a> &middot; 
+                <a href="../serramenti.html">Grate e Inferriate</a> &middot; 
+                <a href="../sorveglianza.html">Sorveglianza</a> &middot; 
+                <a href="../allarmi.html">Allarmi</a> &middot; 
+                <a href="../chi-siamo.html">Chi Siamo</a> &middot;
+                <a href="../privacy-policy.html">Privacy</a> &middot;
+                <a href="../cookie-policy.html">Cookie</a>
+            </p>
+            <p style="color: #666; font-size: 0.85rem; margin-top: 0.75rem;">Creato e Curato da Web Novis</p>
+        </div>
+    </footer>
+
+    <script>
+    function filterPosts(category) {
+        const cards = document.querySelectorAll('.blog-card');
+        const buttons = document.querySelectorAll('.cat-btn');
+        
+        buttons.forEach(btn => btn.classList.remove('active'));
+        event.target.classList.add('active');
+        
+        cards.forEach(card => {
+            if (category === 'all' || card.dataset.category === category) {
+                card.style.display = '';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
+    </script>
+    <script src="../script.min.js?v=20250917" defer></script>
+</body>
+</html>
