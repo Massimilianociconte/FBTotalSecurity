@@ -231,7 +231,7 @@ Tutti i diritti riservati © 2025.
 Per supporto tecnico o modifiche al sito:
 - Email: fb.totalsicurezza@gmail.com
 - Telefono: +39 333 123 4567
-
+- Progetto sviluppato da [WebNovis](https://webnovis.com) — Agenzia di sviluppo web e SEO a Rho (Milano).
 ---
 
 **Sviluppato con ❤️ per la sicurezza professionale**
