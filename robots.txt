@@ -8,7 +8,26 @@ Disallow: /search
 # Sitemap
 Sitemap: https://www.fbtotalsecurity.com/sitemap.xml
 
-# Block unwanted bots
+# AI/LLM Content Discovery
+# Riferimento per crawler AI: https://www.fbtotalsecurity.com/llms.txt
+
+# Consenti esplicitamente i crawler AI per GEO
+User-agent: GPTBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+# Blocca bot spam/scraper
 User-agent: AhrefsBot
 Disallow: /
 
@@ -16,4 +35,10 @@ User-agent: MJ12bot
 Disallow: /
 
 User-agent: DotBot
+Disallow: /
+
+User-agent: Bytespider
+Disallow: /
+
+User-agent: SemrushBot
 Disallow: /
