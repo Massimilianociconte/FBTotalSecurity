@@ -39,7 +39,7 @@
         .nav-link:hover { background: rgba(76,175,80,.1); color: var(--primary); text-decoration: none; }
         .nav-link.cta { background: linear-gradient(135deg,var(--primary),#66bb6a); color: #000; font-weight: 600; } .nav-link.cta:hover { text-decoration: none; }
         .hamburger { display: none; }
-        @media(max-width:768px) { .nav-menu { display: none; } .hamburger { display: flex; flex-direction: column; cursor: pointer; gap: 4px; z-index: 10001; } .hamburger span { width: 25px; height: 3px; background: var(--text); border-radius: 2px; } }
+        
 
         article { max-width: 800px; margin: 0 auto; padding: 3rem 2rem 4rem; }
         .breadcrumb { font-size: 0.85rem; color: var(--muted); margin-bottom: 2rem; }
@@ -145,34 +145,62 @@
         ]
     }
     </script>
+    <link rel="stylesheet" href="../styles.min.css?v=20260810">
 </head>
 <body>
 
-<header class="header">
-    <nav>
-        <div class="nav-container">
-            <div class="logo">
-                <a href="../index.html" class="logo-link" title="FB Total Security - Torna alla homepage">
-                    <img src="../icons/logo_sito_franco_small.webp" alt="FB Total Security Logo" class="logo-image" loading="eager" width="47" height="40">
-                    <div class="logo-text">
-                        <span class="logo-title">FB Total Security</span>
-                        <p class="tagline">Creatori di Sicurezza</p>
-                    </div>
-                </a>
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="logo">
+                    <a href="../index.html" class="logo-link" title="FB Total Security - Torna alla homepage">
+                        <img src="../icons/logo_sito_franco_small.webp" alt="FB Total Security Logo" class="logo-image" loading="eager" width="47" height="40">
+                        <div class="logo-text">
+                            <span class="logo-title">FB Total Security</span>
+                            <p class="tagline" data-translate="tagline">Creatori di Sicurezza</p>
+                        </div>
+                    </a>
+                </div>
+                
+                <!-- Selettore lingua mobile verticale accanto al logo -->
+                <div class="mobile-navbar-language">
+                    <button class="lang-btn active" data-lang="it">
+                        <span class="flag-icon">🇮🇹</span> IT
+                    </button>
+                    <button class="lang-btn" data-lang="en">
+                        <span class="flag-icon">🇬🇧</span> EN
+                    </button>
+                </div>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="../nebbiogeni.html" class="nav-link" data-translate="nav-nebbiogeni" title="Sistemi nebbiogeni professionali per la sicurezza">Nebbiogeni</a></li>
+                    <li><a href="../serramenti.html" class="nav-link" data-translate="nav-serramenti" title="Grate e inferriate blindate per porte e finestre">Grate e Inferriate</a></li>
+                    <li><a href="../sorveglianza.html" class="nav-link" data-translate="nav-sorveglianza" title="Sistemi di videosorveglianza avanzati">Sorveglianza</a></li>
+                    <li><a href="../allarmi.html" class="nav-link" data-translate="nav-allarmi" title="Sistemi di allarme intelligenti">Allarmi</a></li>
+                    <li><a href="./" class="nav-link" title="Blog sulla sicurezza: guide e consigli">Blog</a></li>
+                    <li><a href="../lavora-con-noi.html" class="nav-link" data-translate="nav-lavora-con-noi" title="Opportunità di lavoro e carriera">Lavora con noi</a></li>
+                    <li><a href="../chi-siamo.html" class="nav-link" data-translate="nav-chi-siamo" title="Scopri la nostra azienda e la nostra esperienza">Chi siamo</a></li>
+                    <li><a href="../index.html#contatti" class="nav-link cta" data-translate="nav-contatti" title="Contattaci per una consulenza gratuita">Contatti</a></li>
+                    <li class="desktop-language-selector">
+                        <div class="language-selector">
+                            <button class="lang-btn active" data-lang="it">
+                                <span class="flag-icon">🇮🇹</span>
+                                <span>IT</span>
+                            </button>
+                            <button class="lang-btn" data-lang="en">
+                                <span class="flag-icon">🇬🇧</span>
+                                <span>EN</span>
+                            </button>
+                        </div>
+                    </li>
+                </ul>
+                <div class="hamburger" id="hamburger" role="button" tabindex="0" aria-label="Apri menu di navigazione" aria-expanded="false" aria-controls="nav-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
-            <ul class="nav-menu" id="nav-menu">
-                <li><a href="../nebbiogeni.html" class="nav-link">Nebbiogeni</a></li>
-                <li><a href="../serramenti.html" class="nav-link">Grate e Inferriate</a></li>
-                <li><a href="../sorveglianza.html" class="nav-link">Sorveglianza</a></li>
-                <li><a href="../allarmi.html" class="nav-link">Allarmi</a></li>
-                <li><a href="./" class="nav-link">Blog</a></li>
-                <li><a href="../chi-siamo.html" class="nav-link">Chi siamo</a></li>
-                <li><a href="../index.html#contatti" class="nav-link cta">Contatti</a></li>
-            </ul>
-            <div class="hamburger" id="hamburger" role="button" tabindex="0" aria-label="Apri menu di navigazione" aria-expanded="false" aria-controls="nav-menu"><span></span><span></span><span></span></div>
-        </div>
-    </nav>
-</header>
+        </nav>
+    </header>
 <article>
     <div class="breadcrumb">
         <a href="../index.html">Home</a> &rsaquo; <a href="./">Blog</a> &rsaquo; Come Funziona un Nebbiogeno Antifurto
