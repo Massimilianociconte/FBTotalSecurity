@@ -108,8 +108,8 @@
 
         /* Stili critici di base */
         :root {
-            --primary-color: #4caf50;
-            --primary-light: #66bb6a;
+            --primary-color: #10b981;
+            --primary-light: #34d399;
             --text-black: #000;
             --white: #fff;
             --text-light: #b0b0b0
@@ -124,7 +124,7 @@
         }
 
         body {
-            background: var(--text-black);
+            background: var(--text-dark);
             color: var(--white);
             font-family: 'Inter', 'Inter Fallback', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.6;
@@ -142,7 +142,7 @@
             background: linear-gradient(135deg, rgba(0, 0, 0, .95), rgba(26, 26, 26, .95));
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(76, 175, 80, .2);
+            border-bottom: 1px solid rgba(16, 185, 129, .2);
             z-index: 9999;
             transition: background .3s ease, transform .3s ease;
             overflow: visible
@@ -331,7 +331,7 @@
 
         .btn-primary {
             background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
-            color: var(--text-black)
+            color: var(--text-dark)
         }
 
         .btn-secondary {
@@ -429,8 +429,8 @@
     </style>
 
     <!-- Styles -->
-    <link rel="stylesheet" href="styles.min.css?v=20250917" media="print" onload="this.media='all';this.onload=null;">
-    <noscript><link rel="stylesheet" href="styles.min.css?v=20250917"></noscript>
+    <link rel="stylesheet" href="styles.min.css?v=20260811" media="print" onload="this.media='all';this.onload=null;">
+    <noscript><link rel="stylesheet" href="styles.min.css?v=20260811"></noscript>
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -1365,7 +1365,7 @@
                             <input type="checkbox" id="privacy" name="privacy" required>
                             <label for="privacy" data-translate="contact-form-privacy">Accetto il trattamento dei dati
                                 personali secondo i <a href="termini-condizioni.html" target="_blank"
-                                    style="color: #4caf50; text-decoration: underline;">Termini e Condizioni</a></label>
+                                    style="color: #10b981; text-decoration: underline;">Termini e Condizioni</a></label>
                         </div>
 
                         <button type="submit" class="btn btn-primary" data-translate="contact-form-submit">Invia
