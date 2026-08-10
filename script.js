@@ -3139,8 +3139,8 @@ const additionalStyles = `
 }
 
 .header.scrolled {
-    background: rgba(30, 30, 30, 0.98);
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(180deg, rgba(5, 10, 20, 0.97) 0%, rgba(10, 15, 30, 0.95) 100%);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45), 0 1px 0 rgba(16, 185, 129, 0.08);
 }
 
 /* Form Error States */
@@ -3163,10 +3163,17 @@ html {
 
 /* Focus Indicators */
 .btn:focus-visible,
-.nav-link:focus-visible {
-    outline: 2px solid #667eea;
-    outline-offset: 2px;
-    border-radius: 4px;
+.nav-link:focus-visible,
+.lang-btn:focus-visible,
+summary:focus-visible,
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid #10b981;
+    outline-offset: 3px;
+    border-radius: 8px;
 }
 </style>
 `;
