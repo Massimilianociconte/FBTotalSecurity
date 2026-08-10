@@ -121,48 +121,65 @@ window.addEventListener('load', function() {
 
 // Mobile Menu Functionality - Usa cache DOM per eliminare forced reflow
 function initMobileMenu() {
-    // Usa DOM.hamburger, DOM.navMenu, etc. invece di querySelector
     if (DOM.hamburger && DOM.navMenu) {
-        // Cache header element for backdrop-filter fallback
-        const header = document.querySelector('.header');
+        const header = DOM.header || document.querySelector('.header');
         
-        DOM.hamburger.addEventListener('click', function() {
-            DOM.hamburger.classList.toggle('active');
-            DOM.navMenu.classList.toggle('active');
-            DOM.body.classList.toggle('menu-open');
+        // Accessibilità ARIA per lettori di schermo
+        DOM.hamburger.setAttribute('aria-label', 'Apri menu di navigazione');
+        DOM.hamburger.setAttribute('aria-expanded', 'false');
+        DOM.hamburger.setAttribute('aria-controls', 'nav-menu');
+        if (!DOM.navMenu.id) {
+            DOM.navMenu.id = 'nav-menu';
+        }
+        
+        const setMenuState = (isOpen) => {
+            const active = isOpen !== undefined ? isOpen : !DOM.hamburger.classList.contains('active');
+            DOM.hamburger.classList.toggle('active', active);
+            DOM.navMenu.classList.toggle('active', active);
+            DOM.body.classList.toggle('menu-open', active);
+            DOM.hamburger.setAttribute('aria-expanded', active ? 'true' : 'false');
+            DOM.hamburger.setAttribute('aria-label', active ? 'Chiudi menu di navigazione' : 'Apri menu di navigazione');
             
-            // Fallback for browsers that don't support :has() selector
-            // Toggle menu-open class on header to remove backdrop-filter
-            if (header) {
-                header.classList.toggle('menu-open');
+            // Blocco scroll background su mobile per eliminare layout shift durante la navigazione
+            if (window.innerWidth <= 768) {
+                DOM.body.style.overflow = active ? 'hidden' : '';
+            } else {
+                DOM.body.style.overflow = '';
             }
+            
+            if (header) {
+                header.classList.toggle('menu-open', active);
+                if (active) {
+                    header.style.transform = 'translateY(0)';
+                }
+            }
+        };
+        
+        DOM.hamburger.addEventListener('click', function(e) {
+            e.stopPropagation();
+            setMenuState();
         });
         
-        // Close menu when clicking on a link - usa cache nav links
+        // Close menu when clicking on a link
         DOM.navLinks.forEach(link => {
             link.addEventListener('click', function() {
-                DOM.hamburger.classList.remove('active');
-                DOM.navMenu.classList.remove('active');
-                DOM.body.classList.remove('menu-open');
-                
-                // Remove menu-open class from header
-                if (header) {
-                    header.classList.remove('menu-open');
-                }
+                setMenuState(false);
             });
         });
         
         // Close menu when clicking outside
         document.addEventListener('click', function(e) {
-            if (!DOM.hamburger.contains(e.target) && !DOM.navMenu.contains(e.target)) {
-                DOM.hamburger.classList.remove('active');
-                DOM.navMenu.classList.remove('active');
-                DOM.body.classList.remove('menu-open');
-                
-                // Remove menu-open class from header
-                if (header) {
-                    header.classList.remove('menu-open');
-                }
+            if (DOM.hamburger.classList.contains('active') && 
+                !DOM.hamburger.contains(e.target) && 
+                !DOM.navMenu.contains(e.target)) {
+                setMenuState(false);
+            }
+        });
+
+        // Close menu on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && DOM.hamburger.classList.contains('active')) {
+                setMenuState(false);
             }
         });
     }
@@ -265,15 +282,16 @@ function initHeaderScroll() {
     let lastScrollY = 0;
     
     const handleScroll = () => {
-        const scrollY = window.pageYOffset;
+        const scrollY = window.pageYOffset || document.documentElement.scrollTop;
+        const isMenuOpen = DOM.body.classList.contains('menu-open') || (DOM.hamburger && DOM.hamburger.classList.contains('active'));
         
         // Usa il sistema di batching DOM per evitare forced reflow
         domOperations.write(() => {
-            // Add/remove scrolled class at 100px threshold
-            DOM.header.classList.toggle('scrolled', scrollY > 100);
+            // Add/remove scrolled class at 50px threshold
+            DOM.header.classList.toggle('scrolled', scrollY > 50);
             
-            // Hide/show header based on scroll direction at 200px threshold
-            if (scrollY > 200) {
+            // Hide/show header based on scroll direction at 200px threshold (MAI nascondere se il menu mobile è aperto)
+            if (!isMenuOpen && scrollY > 200) {
                 if (scrollY > lastScrollY) {
                     // Scrolling down - hide header
                     DOM.header.style.transform = 'translateY(-100%)';
@@ -282,7 +300,7 @@ function initHeaderScroll() {
                     DOM.header.style.transform = 'translateY(0)';
                 }
             } else {
-                // Always show header when near top
+                // Always show header near top or when mobile menu is active
                 DOM.header.style.transform = 'translateY(0)';
             }
         });

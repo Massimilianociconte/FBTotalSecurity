@@ -11,6 +11,8 @@
 
 /* CSS Custom Properties - Variabili per ottimizzazione performance */
 :root {
+    --header-height: 110px;
+    
     /* Colori principali */
     --primary-color: #4caf50;
     --primary-hover: #45a049;
@@ -64,19 +66,15 @@ body {
     background: var(--text-black);
     
     /* CLS Prevention - Critical Fixes */
-    font-display: optional; /* Cambiato per eliminare CLS */
+    font-display: optional;
     min-height: 100vh;
-    width: 100%; /* Larghezza fissa */
-    padding-top: 80px;
+    width: 100%;
+    padding-top: var(--header-height, 110px);
     overflow-x: hidden;
     
     /* Font loading optimization */
     font-kerning: normal;
     text-rendering: optimizeSpeed;
-    
-    /* CLS FIX: Rinforzo per la stabilità della Hero Section */
-    contain: layout style paint;
-    transform: translateZ(0);
     
     /* Additional CLS prevention */
     box-sizing: border-box;
@@ -177,31 +175,35 @@ a {
     top: 0;
     left: 0;
     right: 0;
-    height: 110px; /* Aumentato ulteriormente da 95px per contenere meglio i selettori lingua verticali */
-    min-height: 110px; /* Aumentato da 95px */
-    max-height: 110px; /* Aumentato da 95px - Force consistent height to prevent CLS */
+    height: var(--header-height, 110px);
+    min-height: var(--header-height, 110px);
+    max-height: var(--header-height, 110px);
     background: linear-gradient(135deg, rgba(0, 0, 0, 0.95) 0%, rgba(26, 26, 26, 0.95) 100%);
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(76, 175, 80, 0.2);
     z-index: 9999;
-    transition: background 0.3s ease, backdrop-filter 0.3s ease, border-bottom 0.3s ease;
+    transition: transform 0.3s ease, background 0.3s ease, backdrop-filter 0.3s ease, border-bottom 0.3s ease;
     box-sizing: border-box;
-    overflow: visible; /* Assicura che il contenuto non venga tagliato */
+    overflow: visible;
+    will-change: transform;
+    backface-visibility: hidden;
 }
 
 .header.scrolled {
     background: linear-gradient(135deg, rgba(0, 0, 0, 0.98) 0%, rgba(26, 26, 26, 0.98) 100%);
     backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
     border-bottom: 1px solid rgba(76, 175, 80, 0.3);
 }
 
 .nav {
     padding: 1rem 0;
-    height: 110px; /* Aumentato da 95px per match con header height */
+    height: var(--header-height, 110px);
     box-sizing: border-box;
     display: flex;
     align-items: center;
-    overflow: visible; /* Assicura che il contenuto non venga tagliato */
+    overflow: visible;
 }
 
 .nav-container {
@@ -2404,51 +2406,36 @@ a {
     
     .nav-menu {
         position: fixed;
-        top: 82px; /* Inizia sotto l'header */
+        top: var(--header-height, 110px);
         left: 0;
-        right: 0; /* Forza la larghezza al 100% */
-        
-        /* SOLUZIONE CLS CRITICA: Altezza fissa per prevenire layout shift */
-        height: 400px; /* Altezza fissa per prevenire layout shift */
-        min-height: 400px; /* Altezza minima garantita */
-        max-height: calc(100vh - 82px); /* Non superare l'altezza viewport */
+        right: 0;
         width: 100%;
+        height: auto;
+        max-height: calc(100vh - var(--header-height, 110px));
         
-        /* Background ottimizzato per performance */
         background: rgba(30, 30, 30, 0.98);
-        
-        /* Flexbox per allineare il contenuto in alto */
         display: flex;
         flex-direction: column;
-        justify-content: flex-start; /* Allinea le voci in alto */
+        justify-content: flex-start;
         align-items: center;
-        padding: 2rem 0;
+        padding: 1.5rem 0 2rem;
         
-        /* ANIMAZIONI OTTIMIZZATE: Solo opacity e visibility per evitare forced reflow */
-        transform: translateZ(0); /* Forza compositing layer */
         opacity: 0;
         visibility: hidden;
-        transition: opacity 0.25s ease-out,
-                    visibility 0s 0.25s; /* Delay sulla visibility per evitare flash */
+        transition: opacity 0.25s ease-out, visibility 0s 0.25s;
         
         z-index: 10000;
-        
-        /* BACKDROP-FILTER OTTIMIZZATO: Compensa quello rimosso dall'header */
         backdrop-filter: blur(15px);
         -webkit-backdrop-filter: blur(15px);
         
         border-radius: 0 0 20px 20px;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
         
-        /* Previeni scrollbar interna */
         overflow-y: auto;
         overflow-x: hidden;
-        
-        /* Smooth scrolling se necessario */
         -webkit-overflow-scrolling: touch;
         
-        /* STABILIZZAZIONE LAYOUT: Previeni CLS e forced reflow */
-        contain: layout style paint size;
+        contain: layout style paint;
         will-change: opacity;
         box-sizing: border-box;
         white-space: normal;
