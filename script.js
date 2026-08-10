@@ -3220,6 +3220,36 @@ window.FrancoSite = {
     initEmailObfuscation
 };
 
+// Reveal Animations on Scroll
+function initScrollReveal() {
+    if (!('IntersectionObserver' in window)) return;
+    
+    const revealElements = document.querySelectorAll('.service-card, .client-card, .feature, .faq-item');
+    if (!revealElements.length) return;
+    
+    revealElements.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+    });
+    
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+    
+    revealElements.forEach(el => revealObserver.observe(el));
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    initScrollReveal();
+});
+
 // Console welcome message
-console.log('%c🔒 FB Total Security - Sistemi di Sicurezza', 'color: #667eea; font-size: 16px; font-weight: bold;');
+console.log('%c🔒 FB Total Security - Sistemi di Sicurezza', 'color: #10b981; font-size: 16px; font-weight: bold;');
 console.log('%cSito web ottimizzato per performance e SEO', 'color: #666; font-size: 12px;');
