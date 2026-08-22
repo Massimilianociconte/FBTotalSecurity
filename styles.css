@@ -11,7 +11,7 @@
 
 /* CSS Custom Properties - Sistema di Design Smeraldo Premium */
 :root {
-    --header-height: 110px;
+    --header-height: 72px;
     
     /* Palette Smeraldo Premium */
     --primary-color: #10b981;
@@ -77,6 +77,8 @@
     padding: 0;
     box-sizing: border-box;
 }
+html{scrollbar-gutter:stable}
+
 
 html {
     scroll-behavior: smooth;
@@ -112,7 +114,7 @@ body {
     font-display: optional;
     min-height: 100vh;
     width: 100%;
-    padding-top: var(--header-height, 110px);
+    padding-top: var(--header-height, 72px);
     overflow-x: hidden;
     
     /* Font loading optimization */
@@ -218,9 +220,9 @@ a {
     top: 0;
     left: 0;
     right: 0;
-    height: var(--header-height, 110px);
-    min-height: var(--header-height, 110px);
-    max-height: var(--header-height, 110px);
+    height: var(--header-height, 72px);
+    min-height: var(--header-height, 72px);
+    max-height: var(--header-height, 72px);
     background: linear-gradient(180deg, rgba(5, 10, 20, 0.92) 0%, rgba(10, 15, 30, 0.88) 100%);
     backdrop-filter: blur(18px) saturate(140%);
     -webkit-backdrop-filter: blur(18px) saturate(140%);
@@ -243,7 +245,7 @@ a {
 
 .nav {
     padding: 1rem 0;
-    height: var(--header-height, 110px);
+    height: var(--header-height, 72px);
     box-sizing: border-box;
     display: flex;
     align-items: center;
@@ -292,8 +294,8 @@ a {
 }
 
 .logo-image {
-    width: 50px;
-    height: 50px;
+    width: 44px;
+    height: 44px;
     border-radius: 8px;
     object-fit: cover;
     transition: transform 0.3s ease;
@@ -312,7 +314,7 @@ a {
 
 .logo h1,
 .logo .logo-title {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-weight: 700;
     color: #ffffff;
     margin: 0;
@@ -324,7 +326,7 @@ a {
 }
 
 .tagline {
-    font-size: 0.9rem;
+    font-size: 0.82rem;
     color: var(--primary-color);
     margin: 0;
     font-weight: 400;
@@ -732,7 +734,7 @@ a {
 
 /* Hero Section - CLS Optimized */
 .hero {
-    min-height: calc(100vh - 80px);
+    min-height: calc(100vh - var(--header-height, 72px));
     display: flex;
     align-items: center;
     justify-content: center;
@@ -2660,12 +2662,12 @@ a {
     
     .nav-menu {
         position: fixed;
-        top: var(--header-height, 110px);
+        top: var(--header-height, 72px);
         left: 0;
         right: 0;
         width: 100%;
         height: auto;
-        max-height: calc(100vh - var(--header-height, 110px));
+        max-height: calc(100vh - var(--header-height, 72px));
         
         background: rgba(30, 30, 30, 0.98);
         display: flex;
@@ -4008,7 +4010,7 @@ a {
    ======================================== */
 
 html {
-    scroll-padding-top: calc(var(--header-height, 110px) + 16px);
+    scroll-padding-top: calc(var(--header-height, 72px) + 16px);
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
 }
@@ -4301,3 +4303,539 @@ html {
     a { color: #000 !important; }
 }
 
+/* ============================================
+   COMPONENTI AGGIUNTI — Audit 2026-08
+   ============================================ */
+
+/* Focus visibile e coerente */
+:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
+/* Honeypot antispam */
+.hp-field {
+    position: absolute !important;
+    left: -9999px !important;
+    top: -9999px !important;
+    width: 1px !important;
+    height: 1px !important;
+    overflow: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+}
+
+/* Stati del form di contatto */
+.form-status {
+    margin-top: 1rem;
+    border-radius: 12px;
+    padding: 0.9rem 1.1rem;
+    display: none;
+}
+.form-status.is-success,
+.form-status.is-error,
+.form-status.is-info { display: block; }
+.form-status.is-success {
+    background: rgba(16, 185, 129, 0.12);
+    border: 1px solid rgba(16, 185, 129, 0.4);
+    color: #d1fae5;
+}
+.form-status.is-error {
+    background: rgba(239, 68, 68, 0.12);
+    border: 1px solid rgba(239, 68, 68, 0.4);
+    color: #fecaca;
+}
+.form-status.is-info {
+    background: rgba(148, 163, 184, 0.1);
+    border: 1px solid rgba(148, 163, 184, 0.3);
+    color: #e2e8f0;
+}
+.form-status p { margin: 0 0 0.5rem; }
+.form-fallback {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 0.75rem;
+}
+form.is-loading [type="submit"] { opacity: 0.7; cursor: progress; }
+
+/* Barra CTA sticky mobile */
+.mobile-cta-bar {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .mobile-cta-bar {
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 9000;
+        display: flex;
+        gap: 1px;
+        background: rgba(10, 15, 30, 0.97);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border-top: 1px solid rgba(16, 185, 129, 0.25);
+        padding-bottom: env(safe-area-inset-bottom, 0);
+    }
+    .mobile-cta-bar a {
+        flex: 1;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.45rem;
+        min-height: 54px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.95rem;
+    }
+    .mobile-cta-bar .mcb-call {
+        background: transparent;
+        color: var(--primary-color);
+    }
+    .mobile-cta-bar .mcb-quote {
+        background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+        color: var(--text-dark);
+    }
+    body { padding-bottom: 54px; }
+}
+
+/* Banner consenso cookie */
+.cookie-banner {
+    position: fixed;
+    left: 1rem;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 11000;
+    max-width: 520px;
+    margin: 0 auto;
+    background: rgba(17, 24, 39, 0.97);
+    border: 1px solid var(--glass-border, rgba(16, 185, 129, 0.18));
+    border-radius: 16px;
+    padding: 1.1rem 1.25rem;
+    box-shadow: 0 18px 48px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transform: translateY(16px);
+    visibility: hidden;
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s 0.3s;
+}
+.cookie-banner.visible {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.cookie-banner-text {
+    font-size: 0.88rem;
+    line-height: 1.55;
+    color: #cbd5e1;
+    margin: 0 0 0.9rem;
+}
+.cookie-banner-text a { color: var(--primary-color); }
+.cookie-banner-actions {
+    display: flex;
+    gap: 0.6rem;
+    justify-content: flex-end;
+}
+.btn-sm { padding: 0.55rem 1.1rem; min-width: auto; height: auto; font-size: 0.9rem; }
+.btn-ghost {
+    background: transparent;
+    color: var(--text-light);
+    border: 1px solid rgba(148, 163, 184, 0.35);
+}
+.btn-ghost:hover { color: #fff; border-color: rgba(148, 163, 184, 0.7); }
+
+@media (max-width: 480px) {
+    .cookie-banner-actions { flex-direction: column-reverse; }
+    .cookie-banner-actions .btn { width: 100%; }
+}
+
+
+/* ============================================
+   CONTENT TYPOGRAPHY LAYER — Leggibilità & Ordine
+   Obiettivo: testi misurati, elenchi strutturati,
+   gerarchia chiara, ritmo verticale costante.
+   ============================================ */
+
+/* ---- 1. Ritmo verticale uniforme tra le sezioni ---- */
+.services-overview,
+.partnerships-section,
+.partners-certifications,
+.why-choose,
+.clients-section,
+.faq-section,
+.contact-section,
+.agency-section,
+.normative-section {
+    padding: clamp(3.5rem, 7vw, 5.5rem) 0;
+}
+
+.section-subtitle { margin-bottom: 2.75rem; }
+.services-grid { margin-top: 2.75rem; }
+
+/* Titoli di sezione: respiro sotto il titolo, prima del contenuto */
+.section-title { margin-bottom: 0.85rem; }
+
+/* ---- 2. Elenchi caratteristici: da muro a griglia scansionabile ---- */
+.service-features {
+    list-style: none;
+    margin: 0 0 2.25rem;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(225px, 1fr));
+    gap: 0.15rem 1.9rem;
+}
+
+.service-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.65rem;
+    padding: 0.5rem 0;
+    padding-left: 0;
+    font-size: 0.97rem;
+    line-height: 1.55;
+    color: #c7d2e0;
+}
+
+/* Badge-check circolare, allineato alla prima riga.
+   NB: position:static annulla l'absolute della regola legacy,
+   altrimenti il badge si sovrappone alla prima lettera. */
+.service-features li::before {
+    content: '\2713';
+    position: static;
+    left: auto;
+    transform: none;
+    display: inline-flex;
+    flex: 0 0 auto;
+    width: 21px;
+    height: 21px;
+    margin-top: 0.12rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    background: rgba(16, 185, 129, 0.13);
+    border: 1px solid rgba(16, 185, 129, 0.35);
+    border-radius: 50%;
+}
+
+@media (max-width: 560px) {
+    .service-features { grid-template-columns: 1fr; }
+}
+
+/* Altri elenchi di contenuto: puntini discreti e allineati */
+.video-description ul,
+.contact-info ul,
+.agency-section ul,
+.normative-section ul {
+    list-style: none;
+    padding-left: 0;
+}
+.video-description li,
+.contact-info li,
+.agency-section ul li,
+.normative-section ul li {
+    position: relative;
+    padding-left: 1.35rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+    color: var(--text-light);
+}
+.video-description li::before,
+.contact-info li::before,
+.agency-section ul li::before,
+.normative-section ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.62em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--primary-color);
+}
+
+/* ---- 3. Misura di lettura dei paragrafi ---- */
+.service-description,
+.service-text > p,
+.mission-section .section-description,
+.video-description p,
+.contact-info > p,
+.feature-card p,
+.cert-card p {
+    max-width: 62ch;
+    line-height: 1.75;
+}
+
+.service-description {
+    font-size: 1.05rem;          /* era 1.2rem: corpo testo, non titolo */
+    color: var(--text-light);     /* coerente col resto del sito */
+    margin-bottom: 1.75rem;
+}
+
+.mission-section .section-description {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.feature-card p {
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 0.96rem;
+}
+
+/* Aria tra paragrafi consecutivi */
+.service-text p + p,
+.video-description p + p,
+.contact-info p + p,
+.mission-section p + p {
+    margin-top: 0.9em;
+}
+
+/* ---- 4. Gerarchia dei sottotitoli nelle pagine servizio ---- */
+.service-section .service-text h2 {
+    font-size: clamp(1.8rem, 3.4vw, 2.5rem);
+    line-height: 1.18;
+    letter-spacing: -0.015em;
+    margin-bottom: 1.1rem;
+}
+
+.service-section h3 {
+    font-size: clamp(1.3rem, 2.1vw, 1.65rem);
+    line-height: 1.28;
+    letter-spacing: -0.01em;
+    color: #f1f5f9;
+    margin: 2.1rem 0 0.85rem;
+}
+
+.service-section h4 {
+    font-size: 1.03rem;
+    line-height: 1.4;
+    color: #e2e8f0;
+    margin: 1.5rem 0 0.55rem;
+}
+
+/* Il primo blocco dopo un titolo non eredita margine superfluo */
+.service-section h2 + p,
+.service-section h3 + p { margin-top: 0; }
+
+/* Sottotitolo hero pagina servizio */
+.hero-subtitle {
+    max-width: 58ch;
+    line-height: 1.72;
+}
+
+/* ---- 5. Card "perché scegliere": testo ordinato e centrato ---- */
+.features-grid { gap: 1.4rem; }
+
+.feature-card h3 {
+    margin-bottom: 0.6rem;
+    font-size: 1.12rem;
+    line-height: 1.35;
+}
+
+/* ---- 6. Risposte FAQ: misura comoda e leggibile ---- */
+.faq-answer {
+    max-width: 68ch;
+    line-height: 1.72;
+    font-size: 0.99rem;
+}
+
+/* ---- 7. Box descrizione video: testo composto ---- */
+.video-description {
+    padding: 1.4rem 1.6rem;
+}
+.video-description p {
+    font-size: 0.97rem;
+    margin-bottom: 0.85rem;
+}
+.video-description details {
+    margin-top: 0.25rem;
+}
+.video-description summary {
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.92rem;
+    letter-spacing: 0.01em;
+}
+
+/* ---- 8. Sezione contatti: info allineate e respirate ---- */
+.contact-details { gap: 1.4rem; }
+.contact-details h3 {
+    font-size: 0.86rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-light);
+    margin-bottom: 0.3rem;
+}
+.contact-details p { line-height: 1.6; }
+
+/* ---- 9. Partnership: tag chip ordinati ---- */
+.feature-tag {
+    line-height: 1.4;
+}
+
+/* ---- 10. CTA delle sezioni servizio allineate al testo ---- */
+.service-text .service-cta,
+.service-text .video-description ~ .service-cta { justify-content: flex-start; }
+@media (max-width: 768px) {
+    .service-text .service-cta { justify-content: center; }
+}
+
+
+/* ============================================
+   FORM LAYER — Estetica e chiarezza del form di contatto
+   ============================================ */
+
+/* Etichette visibili: micro-label maiuscolo sopra il campo */
+.contact-form .form-group > label {
+    display: block;
+    font-size: 0.78rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--text-light);
+    margin-bottom: 0.45rem;
+}
+.contact-form label .optional {
+    text-transform: none;
+    letter-spacing: 0;
+    font-weight: 400;
+    opacity: 0.75;
+}
+
+/* Campi */
+.contact-form input[type="text"],
+.contact-form input[type="email"],
+.contact-form input[type="tel"],
+.contact-form select,
+.contact-form textarea {
+    width: 100%;
+    background: rgba(5, 10, 20, 0.55);
+    border: 1px solid rgba(148, 163, 184, 0.22);
+    border-radius: 10px;
+    color: #f1f5f9;
+    font-family: inherit;
+    font-size: 0.97rem;
+    padding: 0.85rem 1rem;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+.contact-form textarea { resize: vertical; min-height: 110px; }
+.contact-form select { appearance: none; -webkit-appearance: none; background-image: linear-gradient(45deg, transparent 50%, #94a3b8 50%), linear-gradient(135deg, #94a3b8 50%, transparent 50%); background-position: calc(100% - 18px) 55%, calc(100% - 13px) 55%; background-size: 5px 5px; background-repeat: no-repeat; }
+.contact-form ::placeholder { color: #64748b; }
+
+/* Focus: anello smeraldo chiaro */
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background: rgba(16, 185, 129, 0.04);
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
+}
+
+/* Errore sul campo */
+.contact-form input.error,
+.contact-form select.error,
+.contact-form textarea.error {
+    border-color: #ef4444;
+    background: rgba(239, 68, 68, 0.05);
+}
+
+/* Messaggio errore sotto il campo */
+.error-message {
+    color: #fca5a5;
+    font-size: 0.8rem;
+    line-height: 1.4;
+    margin-top: 0.35rem;
+}
+
+/* Checkbox privacy più leggibile */
+.contact-form .checkbox-group {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6rem;
+    margin-top: 0.25rem;
+}
+.contact-form .checkbox-group input[type="checkbox"] {
+    width: 17px;
+    height: 17px;
+    margin-top: 0.2rem;
+    accent-color: var(--primary-color);
+    flex: 0 0 auto;
+    cursor: pointer;
+}
+.contact-form .checkbox-group label {
+    text-transform: none;
+    letter-spacing: 0;
+    font-weight: 400;
+    font-size: 0.86rem;
+    line-height: 1.55;
+    color: var(--text-light);
+    margin-bottom: 0;
+}
+.contact-form .checkbox-group a { color: var(--primary-color); text-decoration: underline; }
+
+/* Spinner sul pulsante durante l'invio */
+form.is-loading button[type="submit"] {
+    position: relative;
+    color: transparent !important;
+    pointer-events: none;
+}
+form.is-loading button[type="submit"]::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2.5px solid rgba(255, 255, 255, 0.35);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: fbs-spin 0.7s linear infinite;
+}
+@keyframes fbs-spin { to { transform: rotate(360deg); } }
+
+/* Pannelli di stato con icona */
+.form-status { position: relative; }
+.form-status.is-success::before,
+.form-status.is-error::before,
+.form-status.is-info::before {
+    display: inline-block;
+    font-weight: 700;
+    margin-right: 0.45rem;
+}
+.form-status.is-success::before { content: '\2713'; color: var(--primary-color); }
+.form-status.is-error::before   { content: '\2717'; color: #ef4444; }
+.form-status.is-info::before    { content: 'i'; font-style: italic; color: #94a3b8; }
+.form-status p { display: inline; }
+.form-fallback { margin-top: 0.85rem; }
+.form-fallback .btn { padding: 0.65rem 1.2rem; font-size: 0.92rem; min-width: auto; height: auto; }
+
+/* Titolo del form: scala coerente col resto del sito */
+.contact-form h3 {
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+    letter-spacing: -0.01em;
+    margin-bottom: 1.4rem;
+}
+
+/* Spaziatura interna dei gruppi */
+.contact-form .form-group { margin-bottom: 1.05rem; }
+
+/* Nota sotto i contatti */
+.contact-note {
+    max-width: 46ch;
+    font-size: 0.9rem;
+    line-height: 1.65;
+    color: var(--text-muted);
+    margin-top: 1.6rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    form.is-loading button[type="submit"]::after { animation-duration: 0s; }
+}

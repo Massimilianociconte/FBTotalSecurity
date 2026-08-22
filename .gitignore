@@ -1,0 +1,13 @@
+# File sensibili e di sviluppo locale — NON deployare
+_attic/
+*.key
+*.crt
+*.pem
+.DS_Store
+
+# Server di sviluppo locale
+server.py
+https_server.py
+
+# Sistema
+.vscode/
