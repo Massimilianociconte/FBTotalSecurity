@@ -5,27 +5,41 @@ Allow: /
 Disallow: /*?s=*
 Disallow: /search
 
-# Sitemap
+# Sitemap (mantenuta: accelera la riscansione così i crawler vedono il noindex)
 Sitemap: https://www.fbtotalsecurity.com/sitemap.xml
 
-# AI/LLM Content Discovery
-# Riferimento per crawler AI: https://www.fbtotalsecurity.com/llms.txt
+# Sito archiviato su richiesta del proprietario (2026-09-26):
+# pagine servite con meta noindex. I crawler AI vengono bloccati via robots
+# così i contenuti non alimentano più risposte AI.
+# AI/LLM Content Discovery disattivata: llms.txt non più pubblicizzato.
 
-# Consenti esplicitamente i crawler AI per GEO
+# Blocca crawler AI
 User-agent: GPTBot
-Allow: /
+Disallow: /
 
 User-agent: Google-Extended
-Allow: /
+Disallow: /
+
+User-agent: ChatGPT-User
+Disallow: /
 
 User-agent: ClaudeBot
-Allow: /
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
 
 User-agent: Applebot-Extended
-Allow: /
+Disallow: /
 
 User-agent: Amazonbot
-Allow: /
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: PerplexityBot
+Disallow: /
 
 # Blocca bot spam/scraper
 User-agent: AhrefsBot

@@ -88,8 +88,6 @@ function cacheDOMElements() {
     DOM.header = document.querySelector('.header');
     DOM.sections = document.querySelectorAll('section[id]');
     DOM.contactForms = document.querySelectorAll('.contact-form form, #candidature-form');
-    DOM.serviceCards = document.querySelectorAll('.service-card');
-    DOM.animateElements = document.querySelectorAll('.service-card, .feature, .contact-item, .service-text, .service-image');
     DOM.langButtons = document.querySelectorAll('.lang-btn');
     DOM.body = document.body;
     DOM.navLinksWithHash = document.querySelectorAll('.nav-link[href^="#"]');
@@ -106,6 +104,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Inizializza solo le funzioni critiche che non causano forced reflows
     initMobileMenu();
+    decorateMobileNav();
     initSmoothScrolling_Phase1();
     initContactForm();
     initLanguageSelector();
@@ -116,13 +115,79 @@ window.addEventListener('load', function() {
     // Ritardo strategico per eliminare forced reflows durante il percorso critico
     setTimeout(() => {
         initSmoothScrolling_Phase2();
-        initScrollAnimations();
         initHeaderScroll();
-        initServiceCards();
     }, 100); // Piccolo ritardo per garantire stabilità del layout
 });
 
 // Mobile Menu Functionality - Usa cache DOM per eliminare forced reflow
+
+// Icone SVG del menu mobile (stroke corrente, 24x24)
+const NAV_ICONS = {
+    'nebbiogeni.html': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19a4.5 4.5 0 1 0-.42-8.98 6 6 0 0 0-11.4 1.86A3.5 3.5 0 0 0 6.5 19h11Z"/><path d="M7 22h10"/></svg>',
+    'serramenti.html': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M12 3v18M4 12h16"/></svg>',
+    'sorveglianza.html': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8l9-3 1.5 4.5L4.5 12.5 3 8Z"/><path d="M13.5 9.5 21 7"/><path d="M8 12.5 7 17a2 2 0 0 0 2 2h3"/><circle cx="18" cy="17" r="2.5"/></svg>',
+    'allarmi.html': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 8 3 8H3s3-1 3-8"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg>',
+    'chi-siamo.html': '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-3.5 8-10V5l-8-3-8 3v7c0 6.5 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></svg>'
+};
+
+const NAV_DESCRIPTIONS = {
+    'nebbiogeni.html': 'Protezione istantanea a nebbia',
+    'serramenti.html': 'Grate blindate certificate',
+    'sorveglianza.html': 'Telecamere AI, controllo 24/7',
+    'allarmi.html': 'Wireless con antipanico',
+    'chi-siamo.html': 'Oltre 20 anni di esperienza'
+};
+
+// Arricchisce i link del menu mobile con icona, descrizione e freccia.
+// Il sistema di traduzione riscrive il testo dei [data-translate]: un
+// MutationObserver ri-decora i link quando le icone vengono rimosse.
+function decorateMobileNav() {
+    const menu = DOM.navMenu || document.querySelector('.nav-menu');
+    if (!menu) return;
+
+    const current = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+    let i = 0;
+
+    menu.querySelectorAll('.nav-link').forEach(link => {
+        if (link.querySelector('.nav-ico') || link.classList.contains('cta')) {
+            link.style.setProperty('--i', i++);
+            return;
+        }
+        const base = (link.getAttribute('href') || '').split('/').pop().split('#')[0].toLowerCase();
+        const iconSvg = NAV_ICONS[base];
+        const desc = NAV_DESCRIPTIONS[base];
+        if (!iconSvg && !desc) { link.style.setProperty('--i', i++); return; }
+
+        const label = link.textContent.trim();
+        link.classList.add('nav-item-rich');
+        link.innerHTML =
+            (iconSvg ? `<span class="nav-ico" aria-hidden="true">${iconSvg}</span>` : '') +
+            `<span class="nav-txt"><span class="nav-label">${label}</span>` +
+            (desc ? `<span class="nav-desc">${desc}</span>` : '') + `</span>` +
+            `<span class="nav-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></span>`;
+        if (base === current) link.classList.add('current');
+        link.style.setProperty('--i', i++);
+    });
+
+    // Footer del menu: CTA telefonica sempre disponibile
+    if (!menu.querySelector('.mobile-menu-footer')) {
+        const footer = document.createElement('div');
+        footer.className = 'mobile-menu-footer';
+        footer.innerHTML =
+            '<a class="menu-call" href="tel:+393802647367">' +
+            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>' +
+            '<span><strong>Chiama ora</strong><small>+39 380 264 7367</small></span></a>';
+        menu.appendChild(footer);
+    }
+
+    // Ri-decora se la traduzione riscrive i link
+    if (!menu.dataset.observed) {
+        const mo = new MutationObserver(() => decorateMobileNav());
+        mo.observe(menu, { childList: true, subtree: true, characterData: true });
+        menu.dataset.observed = '1';
+    }
+}
+
 function initMobileMenu() {
     if (DOM.hamburger && DOM.navMenu) {
         const header = DOM.header || document.querySelector('.header');
@@ -358,42 +423,6 @@ function initHeaderScroll() {
 // Function removed - replaced with optimized version in initHeaderScroll
 
 // script.js
-
-// Scroll Animations - Ottimizzato per eliminare forced reflow e migliorare performance
-function initScrollAnimations() {
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-    
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate-in');
-                // Micro-ottimizzazione: smetti di osservare l'elemento una volta animato
-                observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
-    
-    // Observe elements for animation - usa cache DOM
-    DOM.animateElements.forEach(el => {
-        observer.observe(el);
-    });
-}
-
-// Service Cards Hover Effects - Usa cache DOM
-function initServiceCards() {
-    DOM.serviceCards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-10px) scale(1.02)';
-        });
-        
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = 'translateY(0) scale(1)';
-        });
-    });
-}
 
 // Contact Form Handling - Usa cache DOM
 // Configurazione invio form.
@@ -2093,80 +2122,23 @@ function updatePageLanguageAttributes(lang) {
 // Add CSS for mobile menu and animations
 const additionalStyles = `
 <style>
-/* Mobile Menu Styles */
+/* Mobile Menu: il pannello è disegnato dal layer V3 in styles.css
+   (top: var(--header-height), altezza piena sotto la navbar).
+   Qui restano solo toggle hamburger e lock dello scroll. */
 @media (max-width: 768px) {
     .hamburger {
         z-index: 10001 !important;
     }
-    
-    .hamburger span {
-        background: #ffffff !important;
-    }
-    
-    .nav-menu {
-        position: fixed;
-        top: 80px;
-        left: 0;
-        right: 0;
-        background: rgba(30, 30, 30, 0.98);
-        backdrop-filter: blur(10px);
-        flex-direction: column;
-        padding: 2rem;
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-        /* Rimuovi transform per prevenire CLS */
-        opacity: 0;
-        visibility: hidden;
-        transition: opacity 0.25s ease-out, visibility 0s 0.25s;
-        z-index: 10000;
-        /* Altezza fissa per prevenire CLS */
-        height: 400px;
-        min-height: 400px;
-        max-height: calc(100vh - 80px);
-        contain: layout style paint size;
-        will-change: opacity;
-    }
-    
-    .nav-menu.active {
-        display: flex;
-        opacity: 1;
-        visibility: visible;
-        transition: opacity 0.25s ease-out, visibility 0s;
-    }
-    
-    .hamburger.active span:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
-    }
-    
-    .hamburger.active span:nth-child(2) {
-        opacity: 0;
-    }
-    
-    .hamburger.active span:nth-child(3) {
-        transform: rotate(-45deg) translate(7px, -6px);
-    }
-    
+
     body.menu-open {
         overflow: hidden;
     }
 }
 
 /* Animation Classes */
-.animate-in {
-    animation: fadeInUp 0.6s ease-out forwards;
-}
-
-.service-text,
-.service-image {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.6s ease-out;
-}
-
-.service-text.animate-in,
-.service-image.animate-in {
-    opacity: 1;
-    transform: translateY(0);
-}
+/* Rimosse: .animate-in / .service-text / .service-image / transizione .service-card.
+   La reveal on-scroll è gestita dal sistema a classi .js-reveal in styles.css
+   (proprietà "translate": non entra in conflitto con stagger e hover). */
 
 /* Header Scroll Effect */
 .header {
@@ -2174,7 +2146,7 @@ const additionalStyles = `
 }
 
 .header.scrolled {
-    background: linear-gradient(180deg, rgba(5, 10, 20, 0.97) 0%, rgba(10, 15, 30, 0.95) 100%);
+    background: linear-gradient(180deg, rgba(3, 6, 10, 0.94) 0%, rgba(6, 11, 20, 0.9) 100%);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45), 0 1px 0 rgba(16, 185, 129, 0.08);
 }
 
@@ -2184,11 +2156,6 @@ const additionalStyles = `
 .form-group textarea.error {
     border-color: #ff6b6b;
     background: rgba(255, 107, 107, 0.1);
-}
-
-/* Service Card Transitions */
-.service-card {
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Smooth Scrolling Fallback */
@@ -2263,29 +2230,43 @@ window.FrancoSite = {
 };
 
 // Reveal Animations on Scroll
+// Usa classi CSS (.js-reveal / .is-visible) con la proprietà "translate",
+// così non sovrascrive i transform CSS (stagger nth-child e hover lift).
 function initScrollReveal() {
     if (!('IntersectionObserver' in window)) return;
-    
-    const revealElements = document.querySelectorAll('.service-card, .client-card, .feature, .faq-item');
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const revealElements = document.querySelectorAll('.service-card, .client-card, .feature, .faq-item, .contact-item, .service-text, .service-image');
     if (!revealElements.length) return;
-    
-    revealElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
-    });
-    
+
     const revealObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-                observer.unobserve(entry.target);
-            }
+            if (!entry.isIntersecting) return;
+            const el = entry.target;
+            el.classList.add('is-visible');
+            observer.unobserve(el);
+
+            // A fine transizione rimuove le classi di reveal: il CSS
+            // originale (transizioni hover, stagger) torna pienamente attivo.
+            // Timeout deterministico: transitionend non è affidabile qui perché
+            // regole più specifiche possono sovrascrivere la transition di reveal.
+            const delayMs = parseFloat(el.style.transitionDelay) || 0;
+            setTimeout(() => {
+                el.classList.remove('js-reveal', 'is-visible');
+                el.style.transitionDelay = '';
+            }, 750 + delayMs);
         });
-    }, { threshold: 0.1 });
-    
-    revealElements.forEach(el => revealObserver.observe(el));
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+
+    revealElements.forEach(el => {
+        el.classList.add('js-reveal');
+        const parent = el.parentElement;
+        if (parent) {
+            const pos = Array.prototype.indexOf.call(parent.children, el);
+            if (pos > 0 && pos < 6) el.style.transitionDelay = (pos * 60) + 'ms';
+        }
+        revealObserver.observe(el);
+    });
 }
 
 document.addEventListener('DOMContentLoaded', () => {
